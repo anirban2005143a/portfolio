@@ -1,13 +1,12 @@
 import { useInView, motion } from 'framer-motion'
 import React, { useRef } from 'react'
 import { ProjectCard } from './project-card'
-import { Button } from './ui/button'
 import { ExternalLink } from 'lucide-react'
 
 const Projects = () => {
 
   const projectsRef = useRef(null)
-  const projectsInView = useInView(projectsRef, { once: true, amount: 0.3 })
+  const projectsInView = useInView(projectsRef, { once: true, amount: 0.2 })
 
   const projects = [
     {
@@ -78,16 +77,21 @@ const Projects = () => {
 
           {/* View all button */}
           <div className="mt-12 text-center">
-            <Button
-              variant="outline"
-              asChild
-              className="rounded-full px-6 py-2 border-2 border-purple-500 text-purple-400 hover:bg-purple-500 hover:bg-opacity-10 transition-all group"
+            <button
+              className="
+              border-[#ffffff]/20 bg-[#000000] text-white 
+              hover:bg-[#1a0826b4] hover:bg-opacity-10 
+              inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium 
+              ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 focus-visible:ring-offset-2 
+              disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0
+              rounded-full px-6 py-2 border-2 transition-all group"
             >
-              <a target="_blank" href="#">
+              <a target="_blank" href="#" className=' flex items-center'>
                 View All Projects
-                <ExternalLink className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                <ExternalLink className="ml-2 w-4 h-4 text-white group-hover:translate-x-1 transition-transform" />
               </a>
-            </Button>
+            </button>
+
           </div>
         </motion.div>
       </section>

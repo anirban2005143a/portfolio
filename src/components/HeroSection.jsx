@@ -28,15 +28,15 @@ const HeroSection = () => {
                         initial={{ opacity: 0, scale: 0.9 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.5 }}
-                        className="relative mb-6 w-32 h-32 mx-auto"
+                        className="relative mb-6 w-52 h-52 mx-auto p-2"
                     >
-                        <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[hsl(262.1,83.3%,57.8%)] to-purple-500 animate-spin duration-[8000ms] ease-linear" />
-                        <div className="absolute inset-[3px] rounded-full bg-black flex items-center justify-center">
-                            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[hsl(262.1,83.3%,57.8%)] to-purple-500 opacity-20 animate-pulse" />
+                        <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[hsl(262.1,83.3%,57.8%)] to-purple-500  duration-[8000ms] ease-linear" />
+                        <div className="absolute inset-[3px] rounded-full p-2 bg-black flex items-center justify-center">
+                            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[hsl(262.1,83.3%,57.8%)] to-purple-500 opacity-20 " />
                             <img
                                 src="/anirban.png"
                                 alt="Profile"
-                                className="rounded-full w-28 h-28 object-cover relative z-10"
+                                className="rounded-full w-full h-full object-cover relative z-10"
                             />
                         </div>
                     </motion.div>

@@ -6,7 +6,7 @@ import { Github, Linkedin, Mail } from "lucide-react"
 
 const Contact = () => {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, amount: 0.3 })
+  const isInView = useInView(ref, { once: true, amount: 0.2 })
 
   return (
     <section

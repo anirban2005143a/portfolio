@@ -5,7 +5,7 @@ import SkillCard from "./skill-card"
 const Skill = () => {
 
     const skillsRef = useRef(null)
-    const skillsInView = useInView(skillsRef, { once: true, amount: 0.3 })
+    const skillsInView = useInView(skillsRef, { once: true, amount: 0.2 })
 
     const skills = [
         { name: "React", icon: "react", level: 90 },

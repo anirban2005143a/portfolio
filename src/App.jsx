@@ -14,13 +14,16 @@ function App() {
 
   return (
     <>
-      <BackgroundGradient />
+    <div className=' overflow-hidden'>
+       <BackgroundGradient />
       <FloatingNav />
       <HeroSection />
       <About />
       <Skill />
       <Projects />
       <Contact/>
+    </div>
+     
     </>
   )
 }
