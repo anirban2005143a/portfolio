@@ -1,0 +1,10 @@
+.nextjs-toast{
+    display:none !important;
+}
+.next-watermark {
+    display: none !important;
+  }
+
+  div[data-vercel-live] {
+    display: none !important;
+  }
