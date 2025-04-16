@@ -88,9 +88,9 @@ export function FloatingNav() {
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: -100, opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50"
+            className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 "
           >
-            <nav className="flex items-center gap-5 bg-[#0e0e11]/90 backdrop-blur-md px-5 py-3 rounded-full border border-purple-800 shadow-lg shadow-purple-900/40">
+            <nav className="flex items-center gap-5 bg-[#0e0e11]/40 backdrop-blur-xs px-5 py-3 rounded-full border border-purple-800 shadow-lg shadow-purple-900/40">
               {navItems.map((item) => {
                 const isActive = activeSection === item.href.replace("#", "")
                 const isHovered = hoveredItem === item.name
@@ -107,7 +107,7 @@ export function FloatingNav() {
                       className={`relative z-10 transition-colors ${isActive
                         ? "text-white"
                         : isHovered
-                          ? "text-purple-400"
+                          ? "text-purple-200"
                           : "text-neutral-300"
                         }`}
                     >

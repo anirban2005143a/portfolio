@@ -15,7 +15,7 @@ const HeroSection = () => {
     })
 
     const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
-    const scale = useTransform(scrollYProgress, [0, 0.8], [1, 0])
+    const scale = useTransform(scrollYProgress, [0, 0.3], [1, 0.5])
     const y = useTransform(scrollYProgress, [0, 0.5], [0, -50])
 
 
@@ -42,8 +42,8 @@ const HeroSection = () => {
                     </motion.div>
 
                     <TextReveal
-                        text="Hi, I'm Your Name"
-                        className="text-4xl md:text-6xl font-bold mb-4"
+                        text={`Hi,  I'm    Anirban`}
+                        className="text-4xl md:text-6xl font-normal mb-4 text-white/80"
                         delay={0.2}
                     />
 
@@ -53,13 +53,21 @@ const HeroSection = () => {
                         transition={{ duration: 0.5, delay: 0.7 }}
                         className="relative"
                     >
-                        <h2 className="text-2xl md:text-3xl lg:text-4xl text-gray-500 dark:text-gray-400 mb-8 inline-block font-semibold">
+                        <h2 className="text-3xl md:text-5xl lg:text-6xl mb-4 inline-block font-bold">
                             <span className="relative">
-                                <span className="relative z-10">Full Stack Web Developer</span>
-                               
+                                <span className="relative z-10 bg-clip-text text-transparent bg-[length:200%_auto] bg-gradient-to-r from-violet-500 via-purple-400 to-violet-500 animate-gradient ">
+                                    Full-Stack Innovator
+                                </span>
+
                             </span>
                         </h2>
                     </motion.div>
+
+                    <TextReveal
+                        text={`Crafting cutting-edge solutions at the intersection of web technologies and intuitive user experiences.`}
+                        className="text-xl w-[85%] mx-auto md:text-3xl font-light mb-6 text-white/80"
+                        delay={0.2}
+                    />
 
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}

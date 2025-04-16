@@ -52,7 +52,7 @@ export function TextReveal({ text, className = "", delay = 0 }) {
       {words.map((word, index) => (
         <motion.span
           key={index}
-          className="inline-block mr-1 bg-clip-text text-transparent bg-[length:200%_auto] bg-gradient-to-r from-violet-500 via-purple-400 to-violet-500 animate-gradient"
+          className="inline-block mr-1 "
           variants={child}
         >
           {word}
