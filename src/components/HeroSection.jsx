@@ -1,8 +1,11 @@
+"use client"
+
 import React, { useRef } from 'react'
 import { motion, useInView, useScroll, useTransform } from "framer-motion"
 import { ArrowDown } from "lucide-react"
 import { TextReveal } from './text-reveal'
 import useMobile from "../hooks/use-mobile"
+import Image from 'next/image'
 
 const HeroSection = () => {
 
@@ -33,7 +36,9 @@ const HeroSection = () => {
                         <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[hsl(262.1,83.3%,57.8%)] to-purple-500  duration-[8000ms] ease-linear" />
                         <div className="absolute inset-[3px] rounded-full p-2 bg-black flex items-center justify-center">
                             <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[hsl(262.1,83.3%,57.8%)] to-purple-500 opacity-20 " />
-                            <img
+                            <Image
+                            width={50}
+                            height={50}
                                 src="/anirban.png"
                                 alt="Profile"
                                 className="rounded-full w-full h-full object-cover relative z-10"

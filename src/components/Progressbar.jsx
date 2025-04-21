@@ -1,4 +1,6 @@
-import React, { useState } from 'react'
+"use client"
+
+import React, { useEffect, useState } from 'react'
 import { motion } from "framer-motion"
 
 const Progressbar = () => {
@@ -11,7 +13,11 @@ const Progressbar = () => {
         setScrollProgress(progress)
     }
 
-    window.addEventListener("scroll", handleScroll)
+    useEffect(() => {
+        window.addEventListener("scroll", handleScroll)
+
+    }, [])
+    
 
     return (
         <>

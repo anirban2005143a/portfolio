@@ -1,7 +1,8 @@
-
+"use client"
 import React, { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { ChevronRight, Github, Linkedin, Twitter } from 'lucide-react'
+import Image from 'next/image'
 
 const About = () => {
     const aboutRef = useRef(null)
@@ -38,10 +39,12 @@ const About = () => {
                 <div className="grid md:grid-cols-5 gap-8 items-center">
                     {/* Image Section */}
                     <div className="md:col-span-2 aspect-square relative rounded-xl overflow-hidden shadow-2xl">
-                       
+
                         <div className="absolute bg-[#22062e93] inset-0 flex items-center justify-center backdrop-blur-sm">
-                            <img
-                                src="/placeholder.svg?height=400&width=400"
+                            <Image
+                                width={50}
+                                height={50}
+                                src="/anirban.png"
                                 alt="Profile"
                                 className="w-3/4 h-3/4 object-cover rounded-full border-4 border-background shadow-xl"
                             />

@@ -1,3 +1,5 @@
+"use client"
+
 import { useInView, motion } from 'framer-motion'
 import React, { useRef } from 'react'
 import { ProjectCard } from './project-card'
