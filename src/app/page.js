@@ -8,7 +8,7 @@ import HeroSection from "@/components/HeroSection";
 import Progressbar from "@/components/Progressbar";
 import Projects from "@/components/Projects";
 import Skill from "@/components/Skill";
-import Image from "next/image";
+import Model from "@/model/model";
 
 export default function Home() {
   return (
@@ -22,6 +22,7 @@ export default function Home() {
         <Skill />
         <Projects />
         <Contact />
+        <Model />
       </div>
 
     </>
