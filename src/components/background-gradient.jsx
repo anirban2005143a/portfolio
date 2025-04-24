@@ -14,7 +14,7 @@ export function BackgroundGradient() {
 
   return (
     <>
-      <div className="fixed w-screen h-screen inset-0 overflow-hidden bg-black z-0">
+      <div className="fixed w-screen h-screen inset-0 overflow-hidden z-10">
         {/* Main gradient blobs */}
         <motion.div
           animate={{

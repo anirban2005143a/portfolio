@@ -37,8 +37,8 @@ const HeroSection = () => {
                         <div className="absolute inset-[3px] rounded-full p-2 bg-black flex items-center justify-center">
                             <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[hsl(262.1,83.3%,57.8%)] to-purple-500 opacity-20 " />
                             <Image
-                            width={50}
-                            height={50}
+                                width={50}
+                                height={50}
                                 src="/anirban.png"
                                 alt="Profile"
                                 className="rounded-full w-full h-full object-cover relative z-10"
@@ -48,7 +48,7 @@ const HeroSection = () => {
 
                     <TextReveal
                         text={`Hi,  I'm    Anirban`}
-                        className="text-4xl md:text-6xl font-normal mb-4 text-white/80"
+                        className="text-2xl md:text-4xl font-semibold mb-4 text-white/80"
                         delay={0.2}
                     />
 
@@ -58,7 +58,7 @@ const HeroSection = () => {
                         transition={{ duration: 0.5, delay: 0.7 }}
                         className="relative"
                     >
-                        <h2 className="text-3xl md:text-5xl lg:text-6xl mb-4 inline-block font-bold">
+                        <h2 className="text-3xl md:text-4xl lg:text-5xl mb-4 inline-block font-bold">
                             <span className="relative">
                                 <span className="relative z-10 bg-clip-text text-transparent bg-[length:200%_auto] bg-gradient-to-r from-violet-500 via-purple-400 to-violet-500 animate-gradient ">
                                     Full-Stack Innovator
@@ -70,7 +70,7 @@ const HeroSection = () => {
 
                     <TextReveal
                         text={`Crafting cutting-edge solutions at the intersection of web technologies and intuitive user experiences.`}
-                        className="text-xl w-[85%] mx-auto md:text-3xl font-light mb-6 text-white/80"
+                        className="text-md w-[85%] mx-auto md:text-xl font-light mb-6 text-white/80"
                         delay={0.2}
                     />
 
@@ -80,23 +80,21 @@ const HeroSection = () => {
                         transition={{ duration: 0.5, delay: 0.6 }}
                         className="flex gap-4 justify-center"
                     >
-                        <button
+                        <a
+                            href="#contact"
                             className="rounded-full px-6 py-2 shadow-lg shadow-purple-500/20 hover:shadow-purple-500/40 transition-all overflow-hidden group relative bg-gradient-to-r from-purple-600 to-violet-600 text-white font-medium"
                         >
-                            <a href="#contact" className="block w-full h-full">
-                                <span className="relative z-10">Contact Me</span>
-                                <span className="absolute inset-0 bg-gradient-to-r from-purple-700 to-violet-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                            </a>
-                        </button>
+                            <span className="relative z-10">Contact Me</span>
+                            <span className="absolute inset-0 bg-gradient-to-r from-purple-700 to-violet-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                        </a>
 
-                        <button
+                        <a
+                        href="#projects"
                             className="rounded-full px-6 py-2 border-2 border-purple-600 hover:border-purple-700 text-purple-600 hover:text-white font-medium transition-all overflow-hidden group relative"
                         >
-                            <a href="#projects" className="block w-full h-full">
                                 <span className="relative z-10">View Projects</span>
                                 <span className="absolute inset-0 bg-gradient-to-r from-purple-600 to-violet-600 scale-0 group-hover:scale-100 opacity-0 group-hover:opacity-100 transition-all duration-300 -z-10 rounded-full" />
-                            </a>
-                        </button>
+                        </a>
 
                     </motion.div>
                 </motion.div>
@@ -105,7 +103,7 @@ const HeroSection = () => {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.5, delay: 0.8 }}
-                    className="absolute bottom-10 z-10"
+                    className="absolute bottom-3 z-10"
                 >
                     <motion.div
                         animate={{ y: [0, 10, 0] }}

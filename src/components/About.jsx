@@ -91,14 +91,14 @@ const About = () => {
                         {/* Socials */}
                         <div className="mt-8 flex gap-1">
                             {[["GitHub", Github], ["LinkedIn", Linkedin], ["Twitter", Twitter]].map(([label, Icon], i) => (
-                                <button
+                                <a
+                                    href="#" aria-label={label}
                                     key={i}
                                     className="rounded-full p-3 hover:bg-[#9273c83e] hover:bg-opacity-10 hover:text-[hsl(262.1,83.3%,57.8%)] transition-all group"
                                 >
-                                    <a href="#" aria-label={label}>
-                                        <Icon className="w-5 h-5  group-hover:scale-110 transition-transform" />
-                                    </a>
-                                </button>
+                                    <Icon className="w-5 h-5  group-hover:scale-110 transition-transform" />
+
+                                </a>
                             ))}
                         </div>
                     </div>

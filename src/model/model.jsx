@@ -2,7 +2,10 @@
 
 import React, { useEffect } from 'react'
 import * as THREE from "three"
-import { OrbitControls, GLTFLoader, DRACOLoader } from 'three/examples/jsm/Addons.js'
+import { GLTFLoader, DRACOLoader } from 'three/examples/jsm/Addons.js'
+import gsap from 'gsap'
+import {ScrollTrigger} from 'gsap/ScrollTrigger'
+gsap.registerPlugin(ScrollTrigger)
 
 const Model = () => {
 
@@ -32,6 +35,7 @@ const Model = () => {
         const gltfLoader = new GLTFLoader()
         gltfLoader.setDRACOLoader(dracoLoader)
         let mixer = null
+        let beeModel = null
         gltfLoader.load(
             "/stylized_flying_bee_bird_rigged/scene.gltf",
             (gltf) => {
@@ -46,32 +50,67 @@ const Model = () => {
                 // gltf.scene.scale.set(0.025, 0.025, 0.025)
                 // gltf.scene.rotation.set(Math.PI * 0.5, Math.PI * 0.25, 0)
 
-                const arr = [...gltf.scene.children]
-                console.log(arr)
-                for (const mesh of arr) {
-                    mesh.castShadow = true
-                    mesh.scale.set(0.55, 0.55, 0.55)
-                    mesh.rotation.set(-Math.PI * 0.2, 0, 0)
-                    mesh.position.set(0, 0, -15)
-                    scene.add(mesh)
-                }
-                scene.add(gltf.scene)
+                // const arr = [...gltf.scene.children]
+
+                // for (const mesh of arr) {
+                //     mesh.castShadow = true
+                //     mesh.scale.set(0.55, 0.55, 0.55)
+                //     mesh.rotation.set(-Math.PI * 0.2, 0, 0)
+                //     mesh.position.set(0, 0, -15)
+                //     scene.add(mesh)
+                // }
+
+                beeModel = gltf.scene
+                beeModel.scale.set(0.055, 0.055, 0.055)
+                beeModel.rotation.set(-Math.PI * 0.2, 0, 0)
+                beeModel.position.set(0, 0, 0)
+                scene.add(beeModel)
+
+                console.log(beeModel)
+
+                // GSAP scroll-based animation
+                gsap.to(beeModel.position, {
+                    x: 10, // zig-zag movement, you can play with this
+                    y: -5, // downward scroll
+                    scrollTrigger: {
+                        trigger: document.body,
+                        start: "top top",
+                        end: "bottom bottom",
+                        scrub: true
+                    },
+                    onUpdate: () => {
+                        // optional: update other props like rotation
+                        beeModel.rotation.y += 0.1
+                    }
+                })
+
+                // Optional: create a timeline for zig-zag path
+                gsap.to(beeModel.position, {
+                    x: -10,
+                    scrollTrigger: {
+                        trigger: document.body,
+                        start: "top+=500 top",
+                        end: "bottom bottom",
+                        scrub: true
+                    },
+                    ease: "power1.inOut",
+                    repeat: -1,
+                    yoyo: true,
+                })
 
             }
         )
 
         //camera
         const camera = new THREE.PerspectiveCamera(45, sizes.width / sizes.height, 0.1, 1000)
-        camera.position.set(-0.13, -50, 30)
+        camera.position.set(0,0,10)
+        camera.lookAt(new THREE.Vector3(0, 0, 0))
         scene.add(camera)
 
         // const directionalLight = new THREE.DirectionalLight(parameters.lightColor, 3)
         // directionalLight.position.set(4.41, 2.14, 4.09)
         // scene.add(directionalLight)
 
-        //controls
-        const control = new OrbitControls(camera, canvas)
-        control.enableDamping = true
 
         //renderer
         const renderer = new THREE.WebGLRenderer({
@@ -104,17 +143,20 @@ const Model = () => {
                 mixer.update(dt)
             }
 
-            //update controls
-            control.update()
+            //update renderer
             renderer.render(scene, camera)
             window.requestAnimationFrame(tick)
         }
         tick()
 
+        console.log()
     }, [])
 
+
+    
+
     return (
-        <canvas className="webgl relative z-50"></canvas>
+        <canvas className="webgl fixed top-0 left-0 z-0 "></canvas>
     )
 }
 
