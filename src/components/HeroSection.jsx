@@ -24,7 +24,7 @@ const HeroSection = () => {
 
     return (
         <>
-            <section id='hero' className="h-screen flex bg-black flex-col items-center justify-center text-center px-4 relative overflow-hidden ">
+            <section id='hero' className="section h-screen flex bg-black flex-col items-center justify-center text-center px-4 relative overflow-hidden ">
 
                 <motion.div style={{ opacity, scale, y }} className="z-10">
                     <motion.div

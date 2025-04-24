@@ -9,7 +9,7 @@ const About = () => {
     const aboutInView = useInView(aboutRef, { once: true, amount: 0.2 })
 
     return (
-        <section id="about" className="py-20 px-4 md:px-6 lg:px-8 max-w-6xl z-10 mx-auto relative text-gray-900 dark:text-white">
+        <section id="about" className="section py-20 px-4 md:px-6 lg:px-8 max-w-6xl z-10 mx-auto relative text-gray-900 dark:text-white">
             {/* Blurred floating shapes */}
             <div className="absolute top-0 right-0 -z-10 w-72 h-72 rounded-full blur-3xl bg-[hsl(262.1,83.3%,57.8%)] opacity-10" />
             <div className="absolute bottom-0 left-0 -z-10 w-72 h-72 rounded-full blur-3xl bg-purple-500 opacity-10" />
