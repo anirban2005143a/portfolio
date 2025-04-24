@@ -29,7 +29,7 @@ const Model = () => {
         const scene = new THREE.Scene()
 
         // Camera
-        const camera = new THREE.PerspectiveCamera(45, sizes.width / sizes.height, 0.1, 1000)
+        const camera = new THREE.PerspectiveCamera(10, sizes.width / sizes.height, 0.1, 1000)
         camera.position.set(0, 0, 10)
         camera.lookAt(new THREE.Vector3(0, 0, 0))
         scene.add(camera)
@@ -142,10 +142,6 @@ const Model = () => {
             window.requestAnimationFrame(tick)
         }
         tick()
-
-
-
-
 
     }, [])
 
