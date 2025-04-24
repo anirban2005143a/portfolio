@@ -40,7 +40,7 @@ export default function Home() {
     <>
       <div className=' overflow-hidden'>
         <Progressbar />
-        <BackgroundGradient />
+        {/* <BackgroundGradient /> */}
         <FloatingNav />
         <HeroSection />
         <About />

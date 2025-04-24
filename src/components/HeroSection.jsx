@@ -24,7 +24,7 @@ const HeroSection = () => {
 
     return (
         <>
-            <section className="h-screen flex bg-black flex-col items-center justify-center text-center px-4 relative overflow-hidden ">
+            <section id='hero' className="h-screen flex bg-black flex-col items-center justify-center text-center px-4 relative overflow-hidden ">
 
                 <motion.div style={{ opacity, scale, y }} className="z-10">
                     <motion.div
@@ -115,7 +115,7 @@ const HeroSection = () => {
                 </motion.div>
 
                 {/* 3D Floating Elements */}
-                <div className="absolute inset-0 pointer-events-none">
+                <div className="absolute inset-0 pointer-events-none z-10">
                     {!isMobile && (
                         <>
                             <motion.div
