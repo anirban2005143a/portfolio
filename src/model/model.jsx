@@ -13,137 +13,134 @@ const Model = () => {
     const [arrPositionModel, setarrPositionModel] = useState(null)
     const [bee, setbee] = useState(null)
 
-    const ismobile = useMobile()
+    let ismobile = null;
+    ismobile = useMobile()
 
     useEffect(() => {
 
-        const canvas = document.querySelector("canvas")
+        if (ismobile !== null) {
 
-        // Sizes
-        const sizes = {
-            width: window.innerWidth,
-            height: window.innerHeight
-        }
 
-        // Scene
-        const scene = new THREE.Scene()
+            const canvas = document.querySelector("canvas")
 
-        // Camera
-        const camera = new THREE.PerspectiveCamera(10, sizes.width / sizes.height, 0.1, 1000)
-        camera.position.set(0, 0, 10)
-        camera.lookAt(new THREE.Vector3(0, 0, 0))
-        scene.add(camera)
-
-        const distance = 10;
-        const frustumHeight = 2 * Math.tan(THREE.MathUtils.degToRad(camera.fov) / 2) * distance; // Vertical size of the camera's frustum at the given distance
-        const frustumWidth = frustumHeight * camera.aspect; // Horizontal size based on the aspect ratio
-        const halfFrustumWidth = frustumWidth / 2; // Half the width of the frustum at this distance
-        const objectPositionX = halfFrustumWidth
-
-        let positionArr = [
-            {
-                id: 'hero',
-                position: { x: 0, y: -1, z: 0 },
-                rotation: { x: 0, y: 1.5, z: 0 }
-            },
-            {
-                id: "about",
-                position: { x: ismobile ? 1 : 3, y: -1, z: -5 },
-                rotation: { x: 0.5, y: -0.5, z: 0 },
-            },
-            {
-                id: "skills",
-                position: { x: ismobile ? -1 : -3, y: -1, z: -5 },
-                rotation: { x: 0, y: 0.5, z: 0 },
-            },
-            {
-                id: "projects",
-                position: { x: ismobile ? 0.8 : 1.8, y: -1, z: 0 },
-                rotation: { x: 0.3, y: -0.5, z: 0 },
-            },
-            {
-                id: "contact",
-                position: { x: ismobile ? -1 : -3, y: -1, z: -5 },
-                rotation: { x: 0, y: 0.5, z: 0 },
-            },
-        ];
-
-        setarrPositionModel(positionArr)
-
-        // GLTF loader
-        const dracoLoader = new DRACOLoader()
-        dracoLoader.setDecoderPath('/node_modules/three/examples/jsm/libs/draco/')
-        const gltfLoader = new GLTFLoader()
-        gltfLoader.setDRACOLoader(dracoLoader)
-        let mixer = null
-        let beeModel = null
-
-        gltfLoader.load(
-            "/stylized_flying_bee_bird_rigged/scene.gltf",
-            (gltf) => {
-                mixer = new THREE.AnimationMixer(gltf.scene)
-                const action1 = mixer.clipAction(gltf.animations[0])
-                action1.play()
-
-                beeModel = gltf.scene
-                beeModel.scale.set(0.055, 0.055, 0.055)
-                // beeModel.rotation.set(-Math.PI * 0.2, 0, 0)
-                // beeModel.position.set(3, 0, 0)
-                scene.add(beeModel)
-
-                setbee(beeModel)
-                // modelMove(beeModel)
+            // Sizes
+            const sizes = {
+                width: window.innerWidth,
+                height: window.innerHeight
             }
-        )
 
+            // Scene
+            const scene = new THREE.Scene()
 
-        // Lights
-        const ambientLight = new THREE.AmbientLight(0xffffff, 1)
-        scene.add(ambientLight)
+            // GLTF loader
+            const dracoLoader = new DRACOLoader()
+            dracoLoader.setDecoderPath('/node_modules/three/examples/jsm/libs/draco/')
+            const gltfLoader = new GLTFLoader()
+            gltfLoader.setDRACOLoader(dracoLoader)
+            let mixer = null
+            let beeModel = null
 
-        const directionalLight = new THREE.DirectionalLight(0xffffff, 2)
-        directionalLight.position.set(1, 1, 1)
-        scene.add(directionalLight)
+            gltfLoader.load(
+                "/stylized_flying_bee_bird_rigged/scene.gltf",
+                (gltf) => {
+                    mixer = new THREE.AnimationMixer(gltf.scene)
+                    const action1 = mixer.clipAction(gltf.animations[0])
+                    action1.play()
 
-        // Renderer
-        const renderer = new THREE.WebGLRenderer({
-            canvas,
-            alpha: true
-        })
-        renderer.shadowMap.enabled = true
-        renderer.setSize(sizes.width, sizes.height)
-        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+                    beeModel = gltf.scene
+                    beeModel.scale.set(ismobile ? 0.01 : 0.025, ismobile ? 0.01 : 0.025, ismobile ? 0.01 : 0.025)
+                    const arr = [...beeModel.children]
+                    // for(const mesh of arr){
+                    //     console.log(mesh)
+                    //     mesh.scale.set(0.55, 0.55, 0.55)
+                    // }
+                    scene.add(beeModel)
 
-        // Resize handler
-        window.addEventListener('resize', () => {
-            sizes.width = window.innerWidth
-            sizes.height = window.innerHeight
+                    setbee(beeModel)
+                }
+            )
 
-            camera.aspect = sizes.width / sizes.height
-            camera.updateProjectionMatrix()
+            // Camera
+            const camera = new THREE.PerspectiveCamera(10, sizes.width / sizes.height, 0.1, 1000)
+            camera.position.set(0, 0, 10)
+            camera.lookAt(new THREE.Vector3(0, 0, 0))
+            scene.add(camera)
 
+            const distance = 10;
+            const frustumHeight = 2 * Math.tan(THREE.MathUtils.degToRad(camera.fov) / 2) * distance; // Vertical size of the camera's frustum at the given distance
+            const frustumWidth = frustumHeight * camera.aspect; // Horizontal size based on the aspect ratio
+            const halfFrustumWidth = frustumWidth / 2; // Half the width of the frustum at this distance
+            const objectPositionX = halfFrustumWidth
+
+            let positionArr = [
+                {
+                    id: 'hero',
+                    position: { x: 0, y: -0.2, z: 0 },
+                    rotation: { x: 0, y: 1.5, z: 0 }
+                },
+                {
+                    id: "about",
+                    position: { x: Math.min(objectPositionX , 3), y: -0.5, z: -5 },
+                    rotation: { x: 0.5, y: -0.5, z: 0 },
+                },
+                {
+                    id: "skills",
+                    position: { x: -Math.min(objectPositionX , 3), y: -0.6, z: -5 },
+                    rotation: { x: 0, y: 0.5, z: 0 },
+                },
+                {
+                    id: "projects",
+                    position: { x: Math.min(objectPositionX-0.2 , 3), y: -0.7, z: 0 },
+                    rotation: { x: 0.3, y: -0.5, z: 0 },
+                },
+                {
+                    id: "contact",
+                    position: { x: -Math.min(objectPositionX,3), y: -0.7, z: -5 },
+                    rotation: { x: 0, y: 0.5, z: 0 },
+                },
+            ];
+
+            setarrPositionModel(positionArr)
+
+            // Renderer
+            const renderer = new THREE.WebGLRenderer({
+                canvas,
+                alpha: true
+            })
+            renderer.shadowMap.enabled = true
             renderer.setSize(sizes.width, sizes.height)
             renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
-        })
 
-        // Animation loop
-        const clock = new THREE.Clock()
-        let previousTime = 0
-        const tick = () => {
-            const elapsTime = clock.getElapsedTime()
-            const dt = elapsTime - previousTime
-            previousTime = elapsTime
+            // Resize handler
+            window.addEventListener('resize', () => {
+                sizes.width = window.innerWidth
+                sizes.height = window.innerHeight
 
-            if (mixer) {
-                mixer.update(dt)
+                camera.aspect = sizes.width / sizes.height
+                camera.updateProjectionMatrix()
+
+                renderer.setSize(sizes.width, sizes.height)
+                renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+            })
+
+            // Animation loop
+            const clock = new THREE.Clock()
+            let previousTime = 0
+            const tick = () => {
+                const elapsTime = clock.getElapsedTime()
+                const dt = elapsTime - previousTime
+                previousTime = elapsTime
+
+                if (mixer) {
+                    mixer.update(dt)
+                }
+
+                renderer.render(scene, camera)
+                window.requestAnimationFrame(tick)
             }
-
-            renderer.render(scene, camera)
-            window.requestAnimationFrame(tick)
+            tick()
         }
-        tick()
-
-    }, [])
+    }, [ismobile])
 
     const modelMove = () => {
         const sections = document.querySelectorAll('.section');
@@ -187,6 +184,7 @@ const Model = () => {
         }
     }, [bee, arrPositionModel])
 
+    console.log(ismobile)
 
     return (
         <canvas className="webgl fixed top-0 left-0 z-0"></canvas>
