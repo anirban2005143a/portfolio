@@ -155,13 +155,13 @@ const HeroSection = () => {
                 </div>
 
                 {/* top left flower  */}
-                <div className=' sm:w-[25%] w-[300px]  absolute -top-5 -left-25 z-20'>
+                <div className='w-[20%]  absolute -top-0 -left-10 z-20'>
                     <Image
                     width={500}
                     height={500}
                     alt='top left flower'
-                    src="/flowers/hero/top-left.png"
-                    className=' w-full rotate-[5deg]'
+                    src="/flowers/hero/gettyimages-2150989119-612x612-removebg-preview.png"
+                    className=' w-full rotate-[0deg]'
                     />
                 </div>
 

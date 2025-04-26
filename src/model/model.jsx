@@ -80,22 +80,22 @@ const Model = () => {
                 },
                 {
                     id: "about",
-                    position: { x: Math.min(objectPositionX , 3), y: -0.5, z: -5 },
+                    position: { x: Math.min(objectPositionX , 3), y: -0.3, z: -5 },
                     rotation: { x: 0.5, y: -0.5, z: 0 },
                 },
                 {
                     id: "skills",
-                    position: { x: -Math.min(objectPositionX , 3), y: -0.6, z: -5 },
+                    position: { x: -Math.min(objectPositionX , 3), y: -0.4, z: -5 },
                     rotation: { x: 0, y: 0.5, z: 0 },
                 },
                 {
                     id: "projects",
-                    position: { x: Math.min(objectPositionX-0.2 , 3), y: -0.7, z: 0 },
+                    position: { x: Math.min(objectPositionX-0.2 , 3), y: -0.5, z: 0 },
                     rotation: { x: 0.3, y: -0.5, z: 0 },
                 },
                 {
                     id: "contact",
-                    position: { x: -Math.min(objectPositionX,3), y: -0.7, z: -5 },
+                    position: { x: -Math.min(objectPositionX,3), y: -0.6, z: -5 },
                     rotation: { x: 0, y: 0.5, z: 0 },
                 },
             ];
