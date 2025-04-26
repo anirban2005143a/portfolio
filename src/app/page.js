@@ -16,18 +16,6 @@ gsap.registerPlugin(ScrollTrigger)
 
 export default function Home() {
 
-  //   useEffect(() => {
-  //     gsap.to("body", {
-  //         backgroundColor: "red",
-  //         scrollTrigger: {
-  //             trigger: document.body,
-  //             start: "top top",
-  //             end: "bottom bottom",
-  //             scrub: true
-  //         }
-  //     })
-  // }, [])
-
   useEffect(() => {
     window.addEventListener("scroll", () => {
 
@@ -38,9 +26,9 @@ export default function Home() {
 
   return (
     <>
-      <div className=' overflow-hidden'>
+      <div className=' bg-black overflow-hidden'>
         <Progressbar />
-        {/* <BackgroundGradient /> */}
+        <BackgroundGradient />
         <FloatingNav />
         <HeroSection />
         <About />

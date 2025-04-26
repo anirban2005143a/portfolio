@@ -24,9 +24,9 @@ const HeroSection = () => {
 
     return (
         <>
-            <section id='hero' className="section h-screen flex bg-black flex-col items-center justify-center text-center px-4 relative overflow-hidden ">
+            <section id='hero' className="section h-screen flex bg-black overflow-y-visible flex-col items-center justify-center text-center px-4 relative overflow-hidden ">
 
-                <motion.div style={{ opacity, scale, y }} className="z-10">
+                {/* <motion.div style={{ opacity, scale, y }} className="z-10">
                     <motion.div
                         initial={{ opacity: 0, scale: 0.9 }}
                         animate={{ opacity: 1, scale: 1 }}
@@ -112,7 +112,7 @@ const HeroSection = () => {
                     >
                         <ArrowDown className="w-6 h-6 text-[#ad7eff]" />
                     </motion.div>
-                </motion.div>
+                </motion.div> */}
 
                 {/* 3D Floating Elements */}
                 <div className="absolute inset-0 pointer-events-none z-10">
@@ -153,6 +153,19 @@ const HeroSection = () => {
                         </>
                     )}
                 </div>
+
+                {/* top left flower  */}
+                <div className=' sm:w-[25%] w-[300px]  absolute -top-5 -left-25 z-20'>
+                    <Image
+                    width={500}
+                    height={500}
+                    alt='top left flower'
+                    src="/flowers/hero/top-left.png"
+                    className=' w-full rotate-[5deg]'
+                    />
+                </div>
+
+               
             </section>
 
         </>
