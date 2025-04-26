@@ -155,7 +155,7 @@ const HeroSection = () => {
                 </div>
 
                 {/* top left flower  */}
-                <div className='w-[20%]  absolute -top-0 -left-10 z-20'>
+                <div className='md:w-[20%] sm:w-[300px] w-[200px]  absolute -top-0 -left-10 z-20'>
                     <Image
                     width={500}
                     height={500}

@@ -11,7 +11,7 @@ const About = () => {
     return (
         <section id="about" className="section relative z-10  text-gray-900 ">
 
-            <div className='py-20 px-4 md:px-6 lg:px-8 max-w-6xl mx-auto'>
+            <div className=' px-4 md:px-6 lg:px-8 max-w-6xl mx-auto'>
 
                 {/* top right flower  */}
                 <div className=' md:w-[60%] w-[350px] absolute  -top-70 -right-15 z-20'>
@@ -38,7 +38,7 @@ const About = () => {
                     <div className="grid md:grid-cols-5 my-10  gap-8 items-center ">
 
                         {/* Text Content */}
-                        <div className="md:col-span-3 z-1 backdrop-blur-sm p-8 rounded-xl shadow-lg border border-gray-200 dark:border-white/20 relative">
+                        <div className="md:col-span-3 z-1 backdrop-blur-sm p-8 md:px-8 sm:px-5 px-3  rounded-xl shadow-lg border border-gray-200 dark:border-white/20 relative">
 
                             {/* Corners */}
                             <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-[hsl(262.1,83.3%,57.8%)] rounded-tl-md" />
@@ -58,7 +58,7 @@ const About = () => {
                                         <div className="w-[40px] h-[40px] rounded-full bg-[#7c3bed51]  flex items-center justify-center mt-1">
                                             <ChevronRight className="w-5 h-5 text-[hsl(262,100%,79%)]" />
                                         </div>
-                                        <p className=" w-[90%] text-gray-700 dark:text-gray-300 leading-relaxed">{text}</p>
+                                        <p className=" w-[90%] text-gray-300  leading-relaxed">{text}</p>
                                     </div>
                                 ))}
                             </div>

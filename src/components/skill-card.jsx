@@ -56,6 +56,14 @@ export default function SkillCard({ name, icon, level, delay = 0, onMouseEnter, 
         setIsHovered(false)
         sethoveredIndex(null)
       }}
+      onTouchStart={() => {
+        setIsHovered(true)
+        sethoveredIndex(index)
+      }}
+      onTouchEnd={() => {
+        setIsHovered(false)
+        sethoveredIndex(null)
+      }}
       whileHover={{
         y: -5,
         transition: { duration: 0.2 },

@@ -106,7 +106,7 @@ const Skill = () => {
                 </div>
 
                 <div className=' py-20 px-2 md:px-6 lg:px-8 max-w-6xl mx-auto relative'>
-                    <div className="flex flex-col gap-8 items-end md:mt-0 mt-30">
+                    <div className="flex flex-col gap-8 items-end md:mt-0 mt-40">
                         {skills.map((skill, index) => (
                             <div
                                 className=' max-w-lg w-full '

@@ -140,13 +140,8 @@ export function FloatingNav() {
 
       {isMobile && <div>
         {/* Mobile Navbar */}
-        <div className=" fixed top-0 w-screen flex justify-between items-center py-6 px-5 z-10">
-          {/* Logo on the left */}
-          <a href='#'>
-            <div className="p-1.5 relative font-bold text-2xl bg-clip-text text-transparent bg-[length:200%_auto] bg-gradient-to-r from-violet-500 via-purple-400 to-violet-500 ">
-                AD
-            </div>
-          </a>
+        <div className=" fixed top-0 w-screen flex justify-end items-center py-6 px-5 z-10">
+        
           {/* Toggle Button */}
           <button
             ref={toggleButtonRef}
