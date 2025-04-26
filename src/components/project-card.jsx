@@ -3,7 +3,6 @@
 import { useState } from "react"
 import { motion } from "framer-motion"
 import { ExternalLink, Github } from "lucide-react"
-
 import { Card, CardContent } from "./ui/card"
 
 export function ProjectCard({ project, index, onMouseEnter, onMouseLeave }) {

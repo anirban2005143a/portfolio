@@ -13,10 +13,6 @@ const About = () => {
 
             <div className='py-20 px-4 md:px-6 lg:px-8 max-w-6xl mx-auto'>
 
-                {/* Blurred floating shapes */}
-                <div className="absolute top-0 right-0 -z-10 w-72 h-72 rounded-full blur-3xl bg-[hsl(262.1,83.3%,57.8%)] opacity-10" />
-                <div className="absolute bottom-0 left-0 -z-10 w-72 h-72 rounded-full blur-3xl bg-purple-500 opacity-10" />
-
                 {/* top right flower  */}
                 <div className=' md:w-[60%] w-[350px] absolute  -top-70 -right-15 z-20'>
                     <Image
@@ -86,8 +82,9 @@ const About = () => {
 
                 </motion.div>
                 {/* Blurred floating shapes */}
-                <div className="absolute top-0 right-0 -z-10 w-72 h-72 rounded-full blur-3xl bg-[hsl(262.1,83.3%,57.8%)] opacity-10" />
-                <div className="absolute bottom-0 left-0 -z-10 w-72 h-72 rounded-full blur-3xl bg-purple-500 opacity-10" />
+                <div className="absolute -top-60 right-10 -z-10 md:w-[600px] md:h-[600px] sm:w-[450px] sm:h-[450px] w-[300px] h-[300px] rounded-full blur-3xl bg-[#7c3aed] opacity-10" />
+                <div className="absolute top-0 left-0 -z-10 w-72 h-72 rounded-full blur-3xl bg-[#7c3aed] opacity-10" />
+                <div className="absolute bottom-0 right-0 -z-10 w-72 h-72 rounded-full blur-3xl bg-purple-500 opacity-10" />
 
 
             </div>

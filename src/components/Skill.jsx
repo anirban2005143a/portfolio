@@ -52,6 +52,7 @@ const Skill = () => {
                 {/* top flower  */}
                 <div className=' absolute top-0  left-0  md:w-[500px] w-[350px] z-0'>
                     <Image
+                    alt="top right image"
                         height={500}
                         width={500}
                         src='/flowers/skills/top.png'
@@ -60,25 +61,25 @@ const Skill = () => {
                 </div>
 
                 {/* Gradient Orbs/Balls */}
-                <div className="absolute inset-0 overflow-hidden">
+                <div className="absolute inset-0 overflow-y-visible">
                     {/* Large purple orb */}
-                    <div className="absolute -top-20 -left-20 w-80 h-80 rounded-full bg-gradient-to-br from-purple-900/25 to-indigo-800/20 blur-3xl"></div>
+                    <div className="absolute -z-10 -top-20 left-0 w-80 h-80 rounded-full bg-radial from-purple-900 to-indigo-800 opacity-20 blur-3xl"></div>
 
                     {/* Medium indigo orb - top right */}
-                    <div className="absolute top-1/4 right-10 w-64 h-64 rounded-full bg-gradient-to-bl from-indigo-700/20 to-purple-800/15 blur-3xl"></div>
+                    <div className="absolute -z-10 top-1/4 right-10 w-64 h-64 rounded-full bg-gradient-to-bl from-indigo-700/20 to-purple-800/15 blur-3xl"></div>
 
                     {/* Small purple orb - middle left */}
-                    <div className="absolute top-1/2 -left-10 w-40 h-40 rounded-full bg-gradient-to-tr from-purple-700/20 to-indigo-600/15 blur-2xl"></div>
+                    <div className="absolute -z-10 top-1/2 -left-10 w-40 h-40 rounded-full bg-gradient-to-tr from-purple-700/20 to-indigo-600/15 blur-2xl"></div>
 
                     {/* Medium purple orb - bottom right */}
-                    <div className="absolute bottom-10 right-20 w-56 h-56 rounded-full bg-gradient-to-tl from-purple-800/20 to-indigo-700/15 blur-3xl"></div>
+                    <div className="absolute -z-10 bottom-10 right-20 w-56 h-56 rounded-full bg-gradient-to-tl from-purple-800/20 to-indigo-700/15 blur-3xl"></div>
 
                     {/* Small indigo orb - bottom left */}
-                    <div className="absolute bottom-20 left-1/4 w-32 h-32 rounded-full bg-gradient-to-br from-indigo-600/20 to-purple-700/15 blur-2xl"></div>
+                    <div className="absolute -z-10 bottom-20 left-1/4 w-32 h-32 rounded-full bg-gradient-to-br from-indigo-600/20 to-purple-700/15 blur-2xl"></div>
 
                     {/* Extra small floating orbs */}
                     <motion.div
-                        className="absolute top-1/3 left-1/3 w-16 h-16 rounded-full bg-gradient-to-br from-purple-500/25 to-indigo-600/20 blur-xl"
+                        className="absolute -z-10 top-1/3 left-1/3 w-16 h-16 rounded-full bg-gradient-to-br from-purple-500/25 to-indigo-600/20 blur-xl"
                         animate={{
                             y: [0, -15, 0],
                             x: [0, 10, 0],
