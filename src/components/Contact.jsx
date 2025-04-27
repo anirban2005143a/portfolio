@@ -12,7 +12,7 @@ const Contact = () => {
     <section
       ref={ref}
       id="contact"
-      className="section pb-20 px-4 md:px-6 lg:px-8 max-w-6xl mx-auto relative z-10"
+      className="section pb-20 md:mt-0 mt-[200px] px-4 md:px-6 lg:px-8 max-w-6xl mx-auto relative z-10"
     >
       {/* <div className="absolute inset-0 -z-10  " /> */}
 
@@ -23,18 +23,6 @@ const Contact = () => {
           transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.2s",
         }}
       >
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold inline-block relative text-white">
-            Get In Touch
-            <motion.div
-              className="absolute -bottom-2 left-0 h-1 bg-violet-500 rounded-full"
-              initial={{ width: 0 }}
-              animate={isInView ? { width: "100%" } : { width: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-            />
-          </h2>
-        </div>
-
         <div className="grid md:grid-cols-2 gap-8">
           {/* Left: Info Card */}
           <div className=" bg-opacity-60 backdrop-blur-sm p-8 rounded-xl shadow-lg border border-violet-800 relative text-violet-100">

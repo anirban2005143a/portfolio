@@ -16,14 +16,6 @@ gsap.registerPlugin(ScrollTrigger)
 
 export default function Home() {
 
-  useEffect(() => {
-    window.addEventListener("scroll", () => {
-
-      console.log(window.scrollY)
-    })
-  }, [])
-
-
   return (
     <>
       <div className=' bg-black overflow-hidden'>

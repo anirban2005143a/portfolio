@@ -1,15 +1,17 @@
 "use client"
 
 import { useInView, motion } from 'framer-motion'
-import React, { useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { ProjectCard } from './project-card'
 import { ExternalLink } from 'lucide-react'
 import Image from 'next/image'
+import gsap from 'gsap'
+import {ScrollTrigger} from 'gsap/ScrollTrigger'
+gsap.registerPlugin(ScrollTrigger)
 
 const Projects = () => {
 
-  const projectsRef = useRef(null)
-  const projectsInView = useInView(projectsRef, { once: true, amount: 0.2 })
+  const projectRef = useRef([])
 
   const projects = [
     {
@@ -38,6 +40,27 @@ const Projects = () => {
     },
   ]
 
+  useEffect(() => {
+    projectRef.current && projectRef.current.forEach((el, index) => {
+      gsap.to(
+        el,
+        {
+          opacity: 1,
+          x: 0,
+          duration: 0.8,
+          delay: index * 0.1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: el,
+            start: "top 85%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      )
+    })
+  }, [projectRef.current])
+
+  console.log(projectRef.current)
   return (
     <>
       {/* Projects Section */}
@@ -49,8 +72,19 @@ const Projects = () => {
             alt="top right image"
             height={500}
             width={500}
-            src='/flowers/projects/gettyimages-114248901-612x612-removebg-preview.png'
+            src='/flowers/projects/top-right.png'
             className=' w-full'
+          />
+        </div>
+
+        {/* bottom image  */}
+        <div className=' absolute md:bottom-0 -bottom-[350px] -right-5 md:w-[500px] w-full md:z-10'>
+          <Image
+            alt="top right image"
+            height={500}
+            width={500}
+            src='/flowers/projects/bottom-right.png'
+            className=' w-full '
           />
         </div>
 
@@ -59,20 +93,14 @@ const Projects = () => {
         <div className="absolute bottom-0 right-0 -z-10 w-72 h-72 bg-purple-500 opacity-10 rounded-full blur-3xl" />
 
         {/* card content  */}
-        <div className=' px-4 md:px-6 lg:px-8 max-w-6xl mx-auto z-10 relative md:mt-0 pt-[400px]'>
-          <motion.div
-            ref={projectsRef}
-            style={{
-              opacity: projectsInView ? 1 : 0,
-              transform: projectsInView ? "translateY(0)" : "translateY(50px)",
-              transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.2s",
-            }}
-          >
+        <div className=' px-4 md:px-6 lg:px-8 max-w-6xl mx-auto z-10 relative md:pt-20 pt-[400px]'>
+          <motion.div>
 
             {/* Cards */}
-            <div className=" flex flex-col items-start gap-8 ">
+            <div className=" flex flex-col items-start ">
               {projects.map((project, index) => (
                 <ProjectCard
+                  divref={el => projectRef.current[index] = el}
                   key={index}
                   project={project}
                   index={index}
@@ -80,7 +108,7 @@ const Projects = () => {
               ))}
 
               {/* View all button */}
-              <div className=" md:w-[500px] text-center ">
+              <div className=" md:w-[500px] w-full text-center ">
                 <button
                   className="
               border-[#ffffff]/20  text-white 

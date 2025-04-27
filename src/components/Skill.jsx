@@ -61,7 +61,7 @@ const Skill = () => {
                 </div>
 
                 {/* left side flower  */}
-                <div className=' absolute top-[60%] -left-10 md:w-[550px] w-full z-0 -rotate-20'>
+                <div className=' md:block hidden absolute top-[60%] -left-10 md:w-[550px] z-0 -rotate-20'>
                     <Image
                         alt="bottom left image"
                         height={500}

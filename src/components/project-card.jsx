@@ -1,23 +1,22 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { motion } from "framer-motion"
 import { ExternalLink, Github } from "lucide-react"
 import { Card, CardContent } from "./ui/card"
 
-export function ProjectCard({ project, index, onMouseEnter, onMouseLeave }) {
+export function ProjectCard({ project, index, onMouseEnter, onMouseLeave, divref }) {
   const [isHovered, setIsHovered] = useState(false)
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 50 }}
-      animate={{ opacity: 1, y: 0 }}
+      ref={divref}
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
       onTouchStart={() => setIsHovered(true)}
       onTouchEnd={() => setIsHovered(false)}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className={` md:w-[500px] pb-10 border-white ${index < 2 ? " border-b-2 " : ""}`}
+      className={` md:w-[500px] pb-10 -translate-x-[200px] opacity-0 border-white ${index < 2 ? " border-b-2 " : ""}`}
     >
       <Card className="overflow-hidden flex flex-col relative border-0 shadow-xl   backdrop-blur-sm  group">
         <div className=" relative">

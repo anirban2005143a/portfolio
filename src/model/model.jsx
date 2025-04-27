@@ -184,8 +184,6 @@ const Model = () => {
         }
     }, [bee, arrPositionModel])
 
-    console.log(ismobile)
-
     return (
         <canvas className="webgl fixed top-0 left-0 z-0"></canvas>
     )

@@ -14,7 +14,7 @@ const About = () => {
             <div className=' px-4 md:px-6 lg:px-8 max-w-6xl mx-auto'>
 
                 {/* top right flower  */}
-                <div className=' md:w-[60%] w-[350px] absolute  -top-70 -right-15 z-20'>
+                <div className=' md:w-[600px] w-full absolute  -top-50 -right-15 z-20'>
                     <Image
                         width={600}
                         height={600}

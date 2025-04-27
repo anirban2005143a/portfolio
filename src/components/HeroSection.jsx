@@ -77,6 +77,17 @@ const HeroSection = () => {
                     />
                 </div>
 
+                {/* top right flower  */}
+                <div className='md:w-[500px] sm:w-[300px] w-[200px] md:block hidden absolute -top-10 -right-0 z-20'>
+                    <Image
+                    width={500}
+                    height={500}
+                    alt='top left flower'
+                    src="/flowers/hero/top-right.png"
+                    className=' w-full  '
+                    />
+                </div>
+
                
             </section>
 
