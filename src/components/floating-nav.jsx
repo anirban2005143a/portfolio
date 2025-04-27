@@ -80,6 +80,12 @@ export function FloatingNav() {
     }
   }, [isMenuOpen]);
 
+  useEffect(() => {
+    if(isMenuOpen) document.body.style.overflow = "hidden"
+    else document.body.style.overflow = "auto"
+  }, [isMenuOpen])
+  
+
   return (
     <>
       {!isMobile && <AnimatePresence>
@@ -89,7 +95,7 @@ export function FloatingNav() {
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: -100, opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 "
+            className="fixed top-4 left-1/2 transform -translate-x-1/2 z-40 "
           >
             <nav className="flex items-center gap-5 bg-[#0e0e11]/40 backdrop-blur-xs px-5 py-3 rounded-full border border-purple-800 shadow-lg shadow-purple-900/40">
               {navItems.map((item) => {
@@ -140,7 +146,7 @@ export function FloatingNav() {
 
       {isMobile && <div>
         {/* Mobile Navbar */}
-        <div className=" fixed top-0 w-screen flex justify-end items-center py-6 px-5 z-10">
+        <div className=" fixed top-0 w-screen flex justify-end items-center py-6 px-5 z-30">
         
           {/* Toggle Button */}
           <button
@@ -149,7 +155,7 @@ export function FloatingNav() {
               // console.log(menuRef.current)
               setIsMenuOpen(!isMenuOpen)
             }}
-            className=" cursor-pointer focus:outline-none"
+            className=" cursor-pointer focus:outline-none relative "
           >
             <AlignRight className=" text-white scale-[1.5]" />
           </button>
@@ -158,7 +164,7 @@ export function FloatingNav() {
         {/* Mobile Menu */}
         <div
           ref={menuRef}
-          className={` fixed top-0 translate-x-full h-screen w-screen  bg-[#00000084] backdrop-blur-sm shadow-lg z-20`}
+          className={` fixed top-0 translate-x-full h-screen w-screen z-40 bg-[#00000084] backdrop-blur-sm shadow-lg`}
         >
           <div className="px-10 pt-[50px] h-full">
             <button

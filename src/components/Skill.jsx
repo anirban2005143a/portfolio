@@ -66,7 +66,7 @@ const Skill = () => {
                         alt="bottom left image"
                         height={500}
                         width={500}
-                        src='/flowers/skills/gettyimages-521965290-612x612.jpg'
+                        src='/flowers/skills/bottom-side.jpg'
                         className=' w-full'
                     />
                 </div>
