@@ -1,17 +1,18 @@
 "use client"
 
 import { useInView, motion } from 'framer-motion'
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { ProjectCard } from './project-card'
 import { ExternalLink } from 'lucide-react'
 import Image from 'next/image'
 import gsap from 'gsap'
-import {ScrollTrigger} from 'gsap/ScrollTrigger'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
 const Projects = () => {
 
   const projectRef = useRef([])
+  const [isHovered, setisHovered] = useState(false)
 
   const projects = [
     {
@@ -108,20 +109,21 @@ const Projects = () => {
               ))}
 
               {/* View all button */}
-              <div className=" md:w-[500px] w-full text-center ">
+              <div className=" md:w-[500px] w-full my-10">
                 <button
-                  className="
-              border-[#ffffff]/20  text-white 
-              hover:bg-[#1a0826b4] hover:bg-opacity-10 
-              inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium 
-              ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 focus-visible:ring-offset-2 
-              disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0
-              rounded-full px-6 py-2 border-2 transition-all group"
+                  onMouseOver={() => setisHovered(true)}
+                  onMouseLeave={() => setisHovered(false)}
+                  onTouchStart={() => setisHovered(true)}
+                  onTouchEnd={() => setisHovered(false)}
+                  className={`
+                  border-[#ffffff]/20  text-white mx-auto
+                  ${isHovered ? " bg-[#1a0826b4] " : " bg-opacity-10 "}
+                  flex items-center justify-center gap-2 text-sm font-medium  
+                  rounded-full px-6 py-2 border-2 transition-all `}
                 >
-                  <a target="_blank" href="#" className=' flex items-center'>
-                    View All Projects
-                    <ExternalLink className="ml-2 w-4 h-4 text-white group-hover:translate-x-1 transition-transform" />
-                  </a>
+                  View All Projects
+                  <ExternalLink
+                    className={`ml-2 w-4 h-4 text-white ${isHovered ? " translate-x-1 " : ""} transition-transform`} />
                 </button>
 
               </div>

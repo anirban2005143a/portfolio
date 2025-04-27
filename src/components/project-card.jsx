@@ -16,7 +16,7 @@ export function ProjectCard({ project, index, onMouseEnter, onMouseLeave, divref
       onTouchStart={() => setIsHovered(true)}
       onTouchEnd={() => setIsHovered(false)}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className={` md:w-[500px] pb-10 -translate-x-[200px] opacity-0 border-white ${index < 2 ? " border-b-2 " : ""}`}
+      className={` md:w-[500px] py-5 -translate-x-[200px] opacity-0 border-white ${index < 2 ? " border-b-2 " : ""}`}
     >
       <Card className="overflow-hidden flex flex-col relative border-0 shadow-xl   backdrop-blur-sm  group">
         <div className=" relative">
