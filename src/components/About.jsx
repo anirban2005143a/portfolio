@@ -9,7 +9,7 @@ const About = () => {
     const aboutInView = useInView(aboutRef, { once: true, amount: 0.2 })
 
     return (
-        <section id="about" className="section relative z-10  text-gray-900 ">
+        <section id="about" className="section relative  text-gray-900 ">
 
             <div className=' px-4 md:px-6 lg:px-8 max-w-6xl mx-auto'>
 
@@ -38,7 +38,7 @@ const About = () => {
                     <div className="grid md:grid-cols-5 my-10  gap-8 items-center ">
 
                         {/* Text Content */}
-                        <div className="md:col-span-3 z-1 backdrop-blur-sm p-8 md:px-8 sm:px-5 px-3  rounded-xl shadow-lg border border-gray-200 dark:border-white/20 relative">
+                        <div className="md:col-span-3 z-10 bg-gradient-to-bl from-[#250152a2] to-transparent backdrop-blur-xl p-8 md:px-8 sm:px-5 px-3  rounded-xl shadow-lg border border-white/20  relative">
 
                             {/* Corners */}
                             <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-[hsl(262.1,83.3%,57.8%)] rounded-tl-md" />

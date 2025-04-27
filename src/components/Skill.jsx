@@ -47,15 +47,26 @@ const Skill = () => {
 
         <>
             {/* Skills Section */}
-            <section id="skills" className="section  z-10 relative">
+            <section id="skills" className="section  relative ">
 
                 {/* top flower  */}
                 <div className=' absolute top-0  left-0  md:w-[500px] w-[350px] z-0'>
                     <Image
-                    alt="top right image"
+                        alt="top right image"
                         height={500}
                         width={500}
                         src='/flowers/skills/top.png'
+                        className=' w-full'
+                    />
+                </div>
+
+                {/* left side flower  */}
+                <div className=' absolute top-[60%] -left-10 md:w-[550px] w-full z-0 -rotate-20'>
+                    <Image
+                        alt="bottom left image"
+                        height={500}
+                        width={500}
+                        src='/flowers/skills/gettyimages-521965290-612x612.jpg'
                         className=' w-full'
                     />
                 </div>
@@ -106,7 +117,7 @@ const Skill = () => {
                 </div>
 
                 <div className=' py-20 px-2 md:px-6 lg:px-8 max-w-6xl mx-auto relative'>
-                    <div className="flex flex-col gap-8 items-end md:mt-0 mt-40">
+                    <div className="flex flex-col gap-8 items-end md:pt-0 pt-40">
                         {skills.map((skill, index) => (
                             <div
                                 className=' max-w-lg w-full '

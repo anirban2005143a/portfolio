@@ -90,7 +90,7 @@ const Model = () => {
                 },
                 {
                     id: "projects",
-                    position: { x: Math.min(objectPositionX-0.2 , 3), y: -0.5, z: 0 },
+                    position: { x: Math.min(objectPositionX-(ismobile ? 0.15 :0.5) , 3), y: -0.5, z: 0 },
                     rotation: { x: 0.3, y: -0.5, z: 0 },
                 },
                 {

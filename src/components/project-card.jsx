@@ -12,13 +12,14 @@ export function ProjectCard({ project, index, onMouseEnter, onMouseLeave }) {
     <motion.div
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
-      whileHover={{ y: -8 }}
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
-      className=" "
+      onTouchStart={() => setIsHovered(true)}
+      onTouchEnd={() => setIsHovered(false)}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      className={` md:w-[500px] pb-10 border-white ${index < 2 ? " border-b-2 " : ""}`}
     >
-      <Card className="overflow-hidden h-full flex flex-col relative border-0 shadow-xl   backdrop-blur-sm  group">
+      <Card className="overflow-hidden flex flex-col relative border-0 shadow-xl   backdrop-blur-sm  group">
         <div className=" relative">
 
           {/* Corner accents */}
@@ -80,7 +81,9 @@ export function ProjectCard({ project, index, onMouseEnter, onMouseLeave }) {
             </motion.div>
           </div>
 
-          <CardContent>
+          <motion.div
+            whileHover={{ y: -8 }}
+          >
             <div className="flex flex-col  flex-grow p-6">
 
               <h3 className="text-xl font-semibold mb-2 text-violet-500">{project.title}</h3>
@@ -100,7 +103,7 @@ export function ProjectCard({ project, index, onMouseEnter, onMouseLeave }) {
               </div>
 
             </div>
-          </CardContent>
+          </motion.div>
         </div>
       </Card>
     </motion.div>

@@ -71,11 +71,11 @@ export default function SkillCard({ name, icon, level, delay = 0, onMouseEnter, 
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
-      <Card className="overflow-hidden h-full border-0 relative shadow-lg bg-amber-800 backdrop-blur-sm  group">
+      <Card className="overflow-hidden h-full border-0 relative shadow-lg  group">
 
-        <CardContent className="p-6">
+        <CardContent className="p-6 ">
 
-          <div className={`relative p-5  border-[hsl(262.1,83.3%,57.8%)] ${isHovered ? " border-[1px] " : " border-l-4 " }  rounded-md`}  >
+          <div className={`relative p-5 backdrop-blur-sm bg-gradient-to-r from-[#20093c5f] to-transparent border-[hsl(262.1,83.3%,57.8%)] ${isHovered ? " border-[1px] " : " border-l-4 " }  rounded-md`}  >
 
             {/* Corner accents that appear on hover */}
             <motion.div

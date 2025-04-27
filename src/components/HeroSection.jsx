@@ -26,94 +26,6 @@ const HeroSection = () => {
         <>
             <section id='hero' className="section h-screen flex bg-black overflow-y-visible flex-col items-center justify-center text-center px-4 relative overflow-hidden ">
 
-                {/* <motion.div style={{ opacity, scale, y }} className="z-10">
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.5 }}
-                        className="relative mb-6 w-52 h-52 mx-auto p-2"
-                    >
-                        <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[hsl(262.1,83.3%,57.8%)] to-purple-500  duration-[8000ms] ease-linear" />
-                        <div className="absolute inset-[3px] rounded-full p-2 bg-black flex items-center justify-center">
-                            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[hsl(262.1,83.3%,57.8%)] to-purple-500 opacity-20 " />
-                            <Image
-                                width={50}
-                                height={50}
-                                src="/anirban.png"
-                                alt="Profile"
-                                className="rounded-full w-full h-full object-cover relative z-10"
-                            />
-                        </div>
-                    </motion.div>
-
-                    <TextReveal
-                        text={`Hi,  I'm    Anirban`}
-                        className="text-2xl md:text-4xl font-semibold mb-4 text-white/80"
-                        delay={0.2}
-                    />
-
-                    <motion.div
-                        initial={{ opacity: 0, y: -20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: 0.7 }}
-                        className="relative"
-                    >
-                        <h2 className="text-3xl md:text-4xl lg:text-5xl mb-4 inline-block font-bold">
-                            <span className="relative">
-                                <span className="relative z-10 bg-clip-text text-transparent bg-[length:200%_auto] bg-gradient-to-r from-violet-500 via-purple-400 to-violet-500 animate-gradient ">
-                                    Full-Stack Innovator
-                                </span>
-
-                            </span>
-                        </h2>
-                    </motion.div>
-
-                    <TextReveal
-                        text={`Crafting cutting-edge solutions at the intersection of web technologies and intuitive user experiences.`}
-                        className="text-md w-[85%] mx-auto md:text-xl font-light mb-6 text-white/80"
-                        delay={0.2}
-                    />
-
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: 0.6 }}
-                        className="flex gap-4 justify-center"
-                    >
-                        <a
-                            href="#contact"
-                            className="rounded-full px-6 py-2 shadow-lg shadow-purple-500/20 hover:shadow-purple-500/40 transition-all overflow-hidden group relative bg-gradient-to-r from-purple-600 to-violet-600 text-white font-medium"
-                        >
-                            <span className="relative z-10">Contact Me</span>
-                            <span className="absolute inset-0 bg-gradient-to-r from-purple-700 to-violet-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                        </a>
-
-                        <a
-                        href="#projects"
-                            className="rounded-full px-6 py-2 border-2 border-purple-600 hover:border-purple-700 text-purple-600 hover:text-white font-medium transition-all overflow-hidden group relative"
-                        >
-                                <span className="relative z-10">View Projects</span>
-                                <span className="absolute inset-0 bg-gradient-to-r from-purple-600 to-violet-600 scale-0 group-hover:scale-100 opacity-0 group-hover:opacity-100 transition-all duration-300 -z-10 rounded-full" />
-                        </a>
-
-                    </motion.div>
-                </motion.div>
-
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.5, delay: 0.8 }}
-                    className="absolute bottom-3 z-10"
-                >
-                    <motion.div
-                        animate={{ y: [0, 10, 0] }}
-                        transition={{ repeat: Number.POSITIVE_INFINITY, duration: 1.5 }}
-                        className="bg-purple-500/20 bg-opacity-80 backdrop-blur-sm p-2 rounded-full shadow-lg"
-                    >
-                        <ArrowDown className="w-6 h-6 text-[#ad7eff]" />
-                    </motion.div>
-                </motion.div> */}
-
                 {/* 3D Floating Elements */}
                 <div className="absolute inset-0 pointer-events-none z-10">
                     {!isMobile && (
@@ -160,7 +72,7 @@ const HeroSection = () => {
                     width={500}
                     height={500}
                     alt='top left flower'
-                    src="/flowers/hero/gettyimages-2150989119-612x612-removebg-preview.png"
+                    src="/flowers/hero/top-left.png"
                     className=' w-full rotate-[0deg]'
                     />
                 </div>
