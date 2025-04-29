@@ -3,7 +3,7 @@
 
 import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
-
+import {} from "lucide-react"
 import { Card, CardContent } from "./ui/card"
 
 export default function SkillCard({ name, icon, level, delay = 0, onMouseEnter, onMouseLeave, index }) {
@@ -30,7 +30,8 @@ export default function SkillCard({ name, icon, level, delay = 0, onMouseEnter, 
       typescript: "from-blue-500 to-blue-700",
       nodejs: "from-green-500 to-green-700",
       tailwind: "from-cyan-400 to-cyan-600",
-      javascript: "from-yellow-300 to-yellow-500",
+      mongodb: "from-green-300 to-green-500",
+      postgre : "from-cyan-500 to-cyan-300"
     }
 
     return (
@@ -104,7 +105,7 @@ export default function SkillCard({ name, icon, level, delay = 0, onMouseEnter, 
               <div>
                 <h3 className="text-lg font-semibold text-white">{name}</h3>
                 <motion.p
-                  className="text-sm text-muted-foreground"
+                  className="text-sm text-white"
                   animate={isHovered ? { y: 0, opacity: 1 } : { y: 0, opacity: 1 }}
                   initial={{ y: 10, opacity: 0 }}
                 >
@@ -113,7 +114,7 @@ export default function SkillCard({ name, icon, level, delay = 0, onMouseEnter, 
               </div>
             </div>
 
-            <div className="h-3 w-full  bg-muted rounded-full overflow-hidden shadow-inner relative">
+            <div className="h-3 w-full rounded-full overflow-hidden shadow-inner relative">
 
               <motion.div
                 className="h-full bg-gradient-to-r from-indigo-500 to-purple-500 relative"

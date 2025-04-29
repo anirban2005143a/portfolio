@@ -15,11 +15,12 @@ const Skill = () => {
 
     const skills = [
         { name: "React", icon: "react", level: 90 },
-        { name: "Next.js", icon: "nextjs", level: 85 },
-        { name: "TypeScript", icon: "typescript", level: 80 },
+        { name: "Next.js", icon: "nextjs", level: 70 },
+        { name: "Three.js", icon: "typescript", level: 55 },
+        { name: "Tailwind CSS", icon: "tailwind", level: 90 },
         { name: "Node.js", icon: "nodejs", level: 75 },
-        { name: "Tailwind CSS", icon: "tailwind", level: 95 },
-        { name: "JavaScript", icon: "javascript", level: 90 },
+        { name: "Mongo DB", icon: "mongodb", level: 80 },
+        { name: "PostgreSQL", icon: "postgre", level: 50 },
     ]
 
     useEffect(() => {
