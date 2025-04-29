@@ -72,7 +72,7 @@ const Skill = () => {
                 </div>
 
                 {/* Gradient Orbs/Balls */}
-                <div className="absolute inset-0 overflow-y-visible">
+                <div className="absolute inset-0 overflow-y-visible z-0">
                     {/* Large purple orb */}
                     <div className="absolute -z-10 -top-20 left-0 w-80 h-80 rounded-full bg-radial from-purple-900 to-indigo-800 opacity-20 blur-3xl"></div>
 

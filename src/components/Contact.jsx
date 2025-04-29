@@ -46,11 +46,11 @@ const Contact = () => {
                 whileHover={{ x: 5 }}
               >
                 <div className="w-12 h-12 rounded-full bg-violet-500/20 bg-opacity-20 flex items-center justify-center flex-shrink-0 group-hover:bg-opacity-30 transition-colors">
-                  <Mail className="w-5 h-5 text-violet-500" />
+                  <Mail className="w-5 h-5 text-violet-200" />
                 </div>
                 <div>
                   <p className="text-sm text-white/50 mb-1">Email</p>
-                  <p className="font-medium group-hover:text-violet-500 transition-colors">
+                  <p className="font-medium group-hover:text-violet-400 transition-colors">
                     your.email@example.com
                   </p>
                 </div>
@@ -62,11 +62,11 @@ const Contact = () => {
                 whileHover={{ x: 5 }}
               >
                 <div className="w-12 h-12 rounded-full bg-violet-500/20 bg-opacity-20 flex items-center justify-center flex-shrink-0 group-hover:bg-opacity-30 transition-colors">
-                  <Linkedin className="w-5 h-5 text-violet-500" />
+                  <Linkedin className="w-5 h-5 text-violet-200" />
                 </div>
                 <div>
                   <p className="text-sm text-white/50 mb-1">LinkedIn</p>
-                  <p className="font-medium group-hover:text-violet-500 transition-colors">
+                  <p className="font-medium group-hover:text-violet-400 transition-colors">
                     linkedin.com/in/yourname
                   </p>
                 </div>
@@ -78,11 +78,11 @@ const Contact = () => {
                 whileHover={{ x: 5 }}
               >
                 <div className="w-12 h-12 rounded-full bg-violet-500/20 bg-opacity-20 flex items-center justify-center flex-shrink-0 group-hover:bg-opacity-30 transition-colors">
-                  <Github className="w-5 h-5 text-violet-500" />
+                  <Github className="w-5 h-5 text-violet-200" />
                 </div>
                 <div>
                   <p className="text-sm text-white/50 mb-1">GitHub</p>
-                  <p className="font-medium group-hover:text-violet-500 transition-colors">
+                  <p className="font-medium group-hover:text-violet-400 transition-colors">
                     github.com/yourname
                   </p>
                 </div>
