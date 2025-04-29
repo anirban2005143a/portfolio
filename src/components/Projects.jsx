@@ -48,12 +48,12 @@ const Projects = () => {
         {
           opacity: 1,
           x: 0,
-          duration: 0.8,
+          duration: 1,
           delay: index * 0.1,
           ease: "power3.out",
           scrollTrigger: {
             trigger: el,
-            start: "top 85%",
+            start: "top 75%",
             toggleActions: "play none none reverse",
           },
         }
@@ -68,7 +68,7 @@ const Projects = () => {
       <section id="projects" className="section relative pb-20">
 
         {/* top image  */}
-        <div className=' absolute top-0 right-0  md:w-[500px] w-full z-10'>
+        <div className=' absolute top-0 right-0  md:w-[500px] w-full '>
           <Image
             alt="top right image"
             height={500}
@@ -79,13 +79,13 @@ const Projects = () => {
         </div>
 
         {/* bottom image  */}
-        <div className=' absolute md:bottom-0 -bottom-[350px] -right-5 md:w-[500px] w-full md:z-10'>
+        <div className=' absolute md:bottom-0 -bottom-[350px] -right-5 md:w-[500px] w-full z-10 '>
           <Image
             alt="top right image"
             height={500}
             width={500}
             src='/flowers/projects/bottom-right.png'
-            className=' w-full '
+            className=' w-full relative '
           />
         </div>
 
@@ -94,11 +94,11 @@ const Projects = () => {
         <div className="absolute bottom-0 right-0 -z-10 w-72 h-72 bg-purple-500 opacity-10 rounded-full blur-3xl" />
 
         {/* card content  */}
-        <div className=' px-4 md:px-6 lg:px-8 max-w-6xl mx-auto z-10 relative md:pt-20 pt-[400px]'>
+        <div className=' px-4 md:px-6 lg:px-8 max-w-6xl mx-auto  relative md:pt-20 pt-[400px] z-10'>
           <motion.div>
 
             {/* Cards */}
-            <div className=" flex flex-col items-start ">
+            <div className=" relative flex flex-col items-start ">
               {projects.map((project, index) => (
                 <ProjectCard
                   divref={el => projectRef.current[index] = el}

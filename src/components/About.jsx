@@ -11,7 +11,7 @@ const About = () => {
     return (
         <section id="about" className="section relative  text-gray-900 ">
 
-            <div className=' px-4 md:px-6 lg:px-8 max-w-6xl mx-auto'>
+            <div className=' px-4 md:pt-[150px] pt-[50px] pb-[100px] md:px-6 lg:px-8 max-w-6xl mx-auto'>
 
                 {/* top right flower  */}
                 <div className=' md:w-[600px] w-full absolute  -top-50 -right-15 z-20'>
@@ -35,10 +35,10 @@ const About = () => {
                 >
 
                     {/* Content */}
-                    <div className="grid md:grid-cols-5 my-10  gap-8 items-center ">
+                    <div className=" items-center ">
 
                         {/* Text Content */}
-                        <div className="md:col-span-3 z-10 bg-gradient-to-bl from-[#250152a2] to-transparent backdrop-blur-xl p-8 md:px-8 sm:px-5 px-3  rounded-xl shadow-lg border border-white/20  relative">
+                        <div className="md:w-[50%] md:min-w-[500px]  bg-gradient-to-bl from-[#250152a2] to-transparent backdrop-blur-xl p-8 md:px-8 sm:px-5 px-3  rounded-xl shadow-lg border border-white/20  relative">
 
                             {/* Corners */}
                             <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-[hsl(262.1,83.3%,57.8%)] rounded-tl-md" />

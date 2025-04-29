@@ -18,8 +18,8 @@ export function ProjectCard({ project, index, onMouseEnter, onMouseLeave, divref
       transition={{ duration: 0.5, delay: index * 0.1 }}
       className={` md:w-[500px] py-5 -translate-x-[200px] opacity-0 border-white ${index < 2 ? " border-b-2 " : ""}`}
     >
-      <Card className="overflow-hidden flex flex-col relative border-0 shadow-xl   backdrop-blur-sm  group">
-        <div className=" relative">
+      <Card className="overflow-hidden flex flex-col relative border-0 shadow-xl   group">
+        <div className=" relative bg-gradient-to-b from-violet-900/60 to-transparent backdrop-blur-sm">
 
           {/* Corner accents */}
           {["top-0 left-0 rounded-tl-md border-t-2 border-l-2",
@@ -36,7 +36,7 @@ export function ProjectCard({ project, index, onMouseEnter, onMouseLeave, divref
           ))}
 
 
-          <div className="relative aspect-video overflow-hidden rounded-md">
+          <div className="relative aspect-video overflow-hidden rounded-md rounded-b-none">
             {/* Hover overlay gradient */}
             <div
               className="absolute w-full h-full top-0 left-0 bg-gradient-to-t from-[#000000] to-[#00000006] z-10 opacity-0 transition-opacity duration-250"
@@ -45,7 +45,7 @@ export function ProjectCard({ project, index, onMouseEnter, onMouseLeave, divref
             <img
               src={project.image || "/placeholder.svg"}
               alt={project.title}
-              className="object-cover transition-transform duration-500 w-full h-full"
+              className="object-cover transition-transform duration-500 w-full h-full z-0"
               style={{ transform: isHovered ? "scale(1.05)" : "scale(1)" }}
             />
 
@@ -83,7 +83,7 @@ export function ProjectCard({ project, index, onMouseEnter, onMouseLeave, divref
           <motion.div
             whileHover={{ y: -8 }}
           >
-            <div className="flex flex-col  flex-grow p-6">
+            <div className="flex flex-col  flex-grow p-6 z-0">
 
               <h3 className="text-xl font-semibold mb-2 text-violet-500">{project.title}</h3>
               <p className="text-zinc-400 mb-4 flex-grow">{project.description}</p>

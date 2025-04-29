@@ -185,7 +185,7 @@ const Model = () => {
     }, [bee, arrPositionModel])
 
     return (
-        <canvas className="webgl fixed top-0 left-0 z-0"></canvas>
+        <canvas className="webgl fixed top-0 left-0 z-0 pointer-events-none"></canvas>
     )
 }
 
