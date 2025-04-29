@@ -38,7 +38,7 @@ const About = () => {
                     <div className=" items-center ">
 
                         {/* Text Content */}
-                        <div className="md:w-[50%] md:min-w-[500px]  bg-gradient-to-bl from-[#250152a2] to-transparent backdrop-blur-xl p-8 md:px-8 sm:px-5 px-3  rounded-xl shadow-lg border border-white/20  relative">
+                        <div className="md:w-[65%] md:min-w-[500px]  bg-gradient-to-bl from-[#250152a2] to-transparent backdrop-blur-xl p-8 md:px-8 sm:px-5 px-3  rounded-xl shadow-lg border border-white/20  relative">
 
                             {/* Corners */}
                             <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-[hsl(262.1,83.3%,57.8%)] rounded-tl-md" />
