@@ -7,9 +7,10 @@ import { ExternalLink } from 'lucide-react'
 import Image from 'next/image'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
 gsap.registerPlugin(ScrollTrigger)
 
-const Projects = () => {
+const Projects = ({setProjectLoader}) => {
 
   const projectRef = useRef([])
   const [isHovered, setisHovered] = useState(false)
@@ -61,7 +62,6 @@ const Projects = () => {
     })
   }, [projectRef.current])
 
-  console.log(projectRef.current)
   return (
     <>
       {/* Projects Section */}

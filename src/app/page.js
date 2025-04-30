@@ -9,7 +9,7 @@ import Progressbar from "@/components/Progressbar";
 import Projects from "@/components/Projects";
 import Skill from "@/components/Skill";
 import Model from "@/model/model";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
@@ -18,9 +18,8 @@ export default function Home() {
 
   return (
     <>
-      <div className=' bg-black overflow-hidden'>
+      <div className={` bg-black overflow-hidden`}> 
         <Progressbar />
-        <BackgroundGradient />
         <FloatingNav />
         <HeroSection />
         <About />
@@ -28,7 +27,7 @@ export default function Home() {
         <Projects />
         <Contact />
         <Model />
-      </div>
+      </div> 
 
     </>
   );

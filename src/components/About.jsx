@@ -4,7 +4,7 @@ import { motion, useInView } from 'framer-motion'
 import { ChevronRight, Github, Linkedin, Twitter } from 'lucide-react'
 import Image from 'next/image'
 
-const About = () => {
+const About = ({setAboutLoader}) => {
     const aboutRef = useRef(null)
     const aboutInView = useInView(aboutRef, { once: true, amount: 0.2 })
 

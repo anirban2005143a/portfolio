@@ -8,7 +8,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import useMobile from '@/hooks/use-mobile'
 gsap.registerPlugin(ScrollTrigger)
 
-const Model = () => {
+const Model = ({setModelLoader}) => {
 
     const [arrPositionModel, setarrPositionModel] = useState(null)
     const [bee, setbee] = useState(null)
@@ -19,7 +19,6 @@ const Model = () => {
     useEffect(() => {
 
         if (ismobile !== null) {
-
 
             const canvas = document.querySelector("canvas")
 
@@ -57,7 +56,7 @@ const Model = () => {
                     scene.add(beeModel)
 
                     setbee(beeModel)
-                }
+                },
             )
 
             // Camera

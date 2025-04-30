@@ -8,7 +8,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Image from 'next/image'
 gsap.registerPlugin(ScrollTrigger)
 
-const Skill = () => {
+const Skill = ({setSkillLoader}) => {
 
     const skillsRef = useRef([])
     const skillsInView = useInView(skillsRef, { once: true, amount: 0.2 })
@@ -51,7 +51,7 @@ const Skill = () => {
             <section id="skills" className="section  relative ">
 
                 {/* top flower  */}
-                <div className=' absolute top-0  left-0  md:w-[500px] w-[350px] z-0'>
+                <div className=' absolute top-0  left-0  md:w-[500px] w-[350px] z-1'>
                     <Image
                         alt="top right image"
                         height={500}
@@ -75,7 +75,7 @@ const Skill = () => {
                 {/* Gradient Orbs/Balls */}
                 <div className="absolute inset-0 overflow-y-visible z-0">
                     {/* Large purple orb */}
-                    <div className="absolute -z-10 -top-20 left-0 w-80 h-80 rounded-full bg-radial from-purple-900 to-indigo-800 opacity-20 blur-3xl"></div>
+                    <div className="absolute -z-10 -top-20 left-0 w-100 h-100 rounded-full bg-radial from-purple-900 to-indigo-800 opacity-50 blur-[200px]"></div>
 
                     {/* Medium indigo orb - top right */}
                     <div className="absolute -z-10 top-1/4 right-10 w-64 h-64 rounded-full bg-gradient-to-bl from-indigo-700/20 to-purple-800/15 blur-3xl"></div>
@@ -121,7 +121,7 @@ const Skill = () => {
                     <div className="flex flex-col gap-8 items-end md:pt-0 pt-40">
                         {skills.map((skill, index) => (
                             <div
-                                className=' max-w-lg w-full '
+                                className=' max-w-lg w-full'
                                 key={index}
                                 ref={el => skillsRef.current[index] = el}
                             >

@@ -7,7 +7,7 @@ import { TextReveal } from './text-reveal'
 import useMobile from "../hooks/use-mobile"
 import Image from 'next/image'
 
-const HeroSection = () => {
+const HeroSection = ({setheroLoader}) => {
 
     const ref = useRef(null)
     const isMobile = useMobile()
@@ -24,7 +24,7 @@ const HeroSection = () => {
 
     return (
         <>
-            <section id='hero' className="section h-screen flex bg-black overflow-y-visible flex-col items-center justify-center text-center px-4 relative overflow-hidden ">
+            <section id='hero' className="section h-screen flex bg-black overflow-y-visible flex-col items-center justify-center text-center px-4 relative ">
 
                 {/* 3D Floating Elements */}
                 <div className="absolute inset-0 pointer-events-none z-10">
