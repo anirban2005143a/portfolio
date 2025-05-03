@@ -15,7 +15,9 @@ export const sendMail = async (sender, msg) => {
         from: "webdevpurpose21@gmail.com",
         to: "dasanirban268@gmail.com",
         subject: `Message from ${sender}`,
-        text: msg
+        text: msg,
+        html: `<h1>Message from ${sender}</h1>
+                <p>${msg}</p>`
     };
 
     console.log(sender , msg)

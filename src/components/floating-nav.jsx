@@ -177,7 +177,7 @@ export function FloatingNav() {
             </button>
             <div className=' flex flex-col items-start gap-10  pt-[50px] text-white'>
               {navItems.map((item, index) => {
-                console.log(index)
+                // console.log(index)
                 return (
                   <a
                     key={index}
