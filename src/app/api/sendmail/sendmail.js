@@ -1,6 +1,6 @@
 import nodemailer from "nodemailer"
 
-export const sendMail = async (sender, msg) => {
+export const sendMail = async (sender, msg , name) => {
     const auth = nodemailer.createTransport({
         service: "gmail",
         secure: true,
@@ -14,9 +14,9 @@ export const sendMail = async (sender, msg) => {
     const receiver = {
         from: "webdevpurpose21@gmail.com",
         to: "dasanirban268@gmail.com",
-        subject: `Message from ${sender}`,
+        subject: `Message from ${sender} owner ${name}`,
         text: msg,
-        html: `<h1>Message from ${sender}</h1>
+        html: `<h3>Message from ${sender} owner ${name}</h3>
                 <p>${msg}</p>`
     };
 

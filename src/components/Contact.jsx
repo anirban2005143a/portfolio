@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef, useState } from "react"
 import { motion, useInView } from "framer-motion"
-import { Github, Linkedin, Mail } from "lucide-react"
+import { Github, Linkedin, Mail , Loader2 } from "lucide-react"
 import axios from "axios"
 import { toast, ToastContainer } from "react-toastify"
 
@@ -10,21 +10,30 @@ const Contact = () => {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.2 })
 
-  const [email, setemail] = useState("23je0104@iitism.ac.in")
-  const [message, setmessage] = useState("hi anirban")
+  const [email, setemail] = useState("")
+  const [message, setmessage] = useState("")
+  const [name, setname] = useState("")
 
   const sendMail = async () => {
+    if (!email && !message && !name) {
+      showToast(1, "email and message is needed");
+      return;
+    }
     try {
-      const res = await axios.post('/api/sendmail' , {
-        email, message
+      const res = await axios.post('/api/sendmail', {
+        email, message, name
       }, {
         headers: {
           "Content-Type": "application/json"
-        },
-        body: JSON.stringify()
+        }
       })
       console.log(res)
-      showToast(0 , res.data.message)
+      showToast(0, res.data.msg)
+
+      //clear values
+      setemail("")
+      setname("")
+      setmessage("")
     } catch (error) {
       console.log(error)
       showToast(1, error.message)
@@ -41,7 +50,7 @@ const Contact = () => {
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-        theme: "light",
+        theme: "dark",
       });
     } else {
       toast.success(msg, {
@@ -52,14 +61,11 @@ const Contact = () => {
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-        theme: "light",
+        theme: "dark",
       });
     }
   }
 
-  useEffect(() => {
-    sendMail()
-  }, [])
 
 
   return (
@@ -154,7 +160,12 @@ const Contact = () => {
               <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-violet-500 rounded-bl-md" />
               <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-violet-500 rounded-br-md" />
 
-              <form className="space-y-5">
+              <form
+                className="space-y-5"
+                onSubmit={(e)=>{
+                  e.preventDefault()
+                  sendMail()
+                }}>
                 <div className="space-y-2">
                   <label
                     htmlFor="name"
@@ -164,9 +175,14 @@ const Contact = () => {
                     Name
                   </label>
                   <input
+                    required
                     id="name"
                     className="flex h-12 w-full rounded-md border border-white/50  px-4 py-2 text-sm placeholder:text-white/50 focus-visible:outline-none focus-visible:ring-1 outline-0 focus-visible:ring-violet-500/20 focus-visible:ring-offset-[1px] transition-all text-white"
                     placeholder="Your name"
+                    onChange={(e) => {
+                      setname(e.target.value)
+                    }}
+                    value={name}
                   />
                 </div>
 
@@ -179,10 +195,15 @@ const Contact = () => {
                     Email
                   </label>
                   <input
+                    required
                     id="email"
                     type="email"
                     className="flex h-12 w-full rounded-md border border-white/50  px-4 py-2 text-sm placeholder:text-white/50 focus-visible:outline-none focus-visible:ring-1 outline-0 focus-visible:ring-violet-500/20 focus-visible:ring-offset-[1px] transition-all text-white"
                     placeholder="Your email"
+                    onChange={(e) => {
+                      setemail(e.target.value)
+                    }}
+                    value={email}
                   />
                 </div>
 
@@ -195,9 +216,14 @@ const Contact = () => {
                     Message
                   </label>
                   <textarea
+                    required
                     id="message"
                     className="flex min-h-[100px] max-h-[200px] w-full rounded-md border border-white/50  px-4 py-2 text-sm placeholder:text-white/50 focus-visible:outline-none focus-visible:ring-1 outline-0 focus-visible:ring-violet-500/20 focus-visible:ring-offset-[1px] transition-all text-white"
                     placeholder="Your message"
+                    onChange={(e) => {
+                      setmessage(e.target.value)
+                    }}
+                    value={message}
                   />
                 </div>
 

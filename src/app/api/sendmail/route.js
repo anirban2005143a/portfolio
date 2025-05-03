@@ -5,8 +5,7 @@ export async function POST(request) {
 
     try {
         const data = await request.json()
-        console.log(data)
-        await sendMail(data.email , data.message)
+        await sendMail(data.email , data.message , data.name)
         
         return new Response(JSON.stringify({ msg: "Mail send successfully" }), {
             status: 200
