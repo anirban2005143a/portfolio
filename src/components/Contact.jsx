@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef, useState } from "react"
 import { motion, useInView } from "framer-motion"
-import { Github, Linkedin, Mail , Loader2 } from "lucide-react"
+import { Github, Linkedin, Mail, Loader2, Loader } from "lucide-react"
 import axios from "axios"
 import { toast, ToastContainer } from "react-toastify"
 
@@ -13,13 +13,15 @@ const Contact = () => {
   const [email, setemail] = useState("")
   const [message, setmessage] = useState("")
   const [name, setname] = useState("")
+  const [isSending, setisSending] = useState(false)
 
   const sendMail = async () => {
-    if (!email && !message && !name) {
-      showToast(1, "email and message is needed");
-      return;
-    }
     try {
+      setisSending(true)
+      if (!email && !message && !name) {
+        showToast(1, "email and message is needed");
+        return;
+      }
       const res = await axios.post('/api/sendmail', {
         email, message, name
       }, {
@@ -37,6 +39,8 @@ const Contact = () => {
     } catch (error) {
       console.log(error)
       showToast(1, error.message)
+    } finally {
+      setisSending(false)
     }
   }
 
@@ -65,8 +69,6 @@ const Contact = () => {
       });
     }
   }
-
-
 
   return (
     <>
@@ -162,7 +164,7 @@ const Contact = () => {
 
               <form
                 className="space-y-5"
-                onSubmit={(e)=>{
+                onSubmit={(e) => {
                   e.preventDefault()
                   sendMail()
                 }}>
@@ -228,12 +230,15 @@ const Contact = () => {
                 </div>
 
                 <button
+                  disabled={isSending}
                   type="submit"
-                  className="bg-gradient-to-r from-violet-600 to-purple-500 hover:from-violet-700 hover:to-purple-600 text-white px-4 py-2 w-full rounded-md h-12 relative overflow-hidden group transition-all"
+                  className="bg-gradient-to-r cursor-pointer from-violet-600 to-purple-500 hover:from-violet-700 hover:to-purple-600 text-white px-4 py-2 w-full rounded-md h-12 relative overflow-hidden group transition-all"
                 >
-                  <span className="relative z-10">Send Message</span>
+                  {!isSending && <span className="relative z-10">Send Message</span>}
+                  {isSending && <Loader2 className="z-10 animate-spin mx-auto text-white relative" />}
                   <span className="absolute inset-0 bg-gradient-to-r from-violet-600 to-purple-500 group-hover:scale-150 transition-transform duration-300 ease-in-out" />
                   <span className="absolute inset-0 bg-gradient-to-r from-violet-600 to-purple-500 opacity-0 group-hover:opacity-80 transition-opacity" />
+
                 </button>
               </form>
             </div>
