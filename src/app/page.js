@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import About from "@/components/About";
 import { BackgroundGradient } from "@/components/background-gradient";
@@ -10,15 +10,19 @@ import Projects from "@/components/Projects";
 import Skill from "@/components/Skill";
 import Model from "@/model/model";
 import { useEffect, useState } from "react";
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-gsap.registerPlugin(ScrollTrigger)
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Loader } from "@/components/ui/Loader";
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
+  const [isLoading, setisLoading] = useState(true);
 
   return (
     <>
-      <div className={` bg-black overflow-hidden`}> 
+      {isLoading && <Loader />}
+
+      <div className={`${isLoading ? "hidden" : ""} bg-black overflow-hidden`}>
         <Progressbar />
         <FloatingNav />
         <HeroSection />
@@ -26,9 +30,8 @@ export default function Home() {
         <Skill />
         <Projects />
         <Contact />
-        <Model />
-      </div> 
-
+        <Model setisModelLoading={setisLoading} />
+      </div>
     </>
   );
 }

@@ -115,7 +115,7 @@ const Contact = () => {
                   <div>
                     <p className="text-sm text-white/50 mb-1">Email</p>
                     <p className="font-medium group-hover:text-violet-400 transition-colors">
-                      your.email@example.com
+                      dasanirban268@gmail.com
                     </p>
                   </div>
                 </motion.div>
@@ -131,7 +131,7 @@ const Contact = () => {
                   <div>
                     <p className="text-sm text-white/50 mb-1">LinkedIn</p>
                     <p className="font-medium group-hover:text-violet-400 transition-colors">
-                      linkedin.com/in/yourname
+                      linkedin.com/in/anirban-das-2014412b9/
                     </p>
                   </div>
                 </motion.div>
@@ -147,7 +147,7 @@ const Contact = () => {
                   <div>
                     <p className="text-sm text-white/50 mb-1">GitHub</p>
                     <p className="font-medium group-hover:text-violet-400 transition-colors">
-                      github.com/yourname
+                      github.com/anirban2005143a
                     </p>
                   </div>
                 </motion.div>

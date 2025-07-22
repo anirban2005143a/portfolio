@@ -1,48 +1,78 @@
-"use client"
+"use client";
 
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import {} from "lucide-react";
+import { Card, CardContent } from "./ui/card";
+import {
+  SiReact,
+  SiNextdotjs,
+  SiThreedotjs,
+  SiTailwindcss,
+  SiMongodb,
+  SiPostgresql,
+  SiDocker,
+  SiNodedotjs,
+} from "react-icons/si";
 
-import { useEffect, useState } from "react"
-import { motion } from "framer-motion"
-import {} from "lucide-react"
-import { Card, CardContent } from "./ui/card"
-
-export default function SkillCard({ name, icon, level, delay = 0, onMouseEnter, onMouseLeave, index }) {
-  const [width, setWidth] = useState(0)
-  const [isHovered, setIsHovered] = useState(false)
-  const [hoveredIndex, sethoveredIndex] = useState(null)
-
+export default function SkillCard({
+  name,
+  icon,
+  level,
+  delay = 0,
+  onMouseEnter,
+  onMouseLeave,
+  index,
+}) {
+  const [width, setWidth] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
+  const [hoveredIndex, sethoveredIndex] = useState(null);
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setWidth(level)
-    }, delay * 1000)
+      setWidth(level);
+    }, delay * 1000); 
 
-    return () => clearTimeout(timer)
-  }, [level, delay])
+    return () => clearTimeout(timer);
+  }, [level, delay]);
 
   // This function returns the appropriate icon component based on the icon name
   const getIconComponent = (iconName) => {
-    // In a real implementation, you would import and use actual icons
-    // For this example, we'll use placeholder colored squares with gradients
+    const icons = {
+      react: <SiReact size={28} />,
+      nextjs: <SiNextdotjs size={28} />,
+      typescript: <SiThreedotjs size={28} />, // note: you may want to switch this to real TypeScript if intended
+      nodejs: <SiNodedotjs size={28} />,
+      tailwind: <SiTailwindcss size={28} />,
+      mongodb: <SiMongodb size={28} />,
+      postgre: <SiPostgresql size={28} />,
+      docker: <SiDocker size={28} />,
+    };
+
     const colors = {
       react: "from-blue-400 to-blue-600",
       nextjs: "from-gray-700 to-black",
-      typescript: "from-blue-500 to-blue-700",
+      typescript: "from-purple-500 to-purple-700",
       nodejs: "from-green-500 to-green-700",
       tailwind: "from-cyan-400 to-cyan-600",
       mongodb: "from-green-300 to-green-500",
-      postgre : "from-cyan-500 to-cyan-300"
-    }
+      postgre: "from-blue-500 to-cyan-300",
+      docker: "from-blue-400 to-blue-700",
+    };
 
     return (
       <div
-        className={`w-14 h-14 rounded-xl bg-gradient-to-br ${colors[iconName] || "from-gray-400 to-gray-600"} flex items-center justify-center text-white font-bold shadow-lg relative overflow-hidden group`}
+        className={`w-14 h-14 rounded-xl bg-gradient-to-br ${
+          colors[iconName] || "from-gray-400 to-gray-600"
+        } flex items-center justify-center text-white shadow-lg relative overflow-hidden group`}
       >
         <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity" />
-        <span className="text-xl">{iconName.charAt(0).toUpperCase()}</span>
+        {icons[iconName] || (
+          <span className="text-xl">{iconName.charAt(0).toUpperCase()}</span>
+        )}
       </div>
-    )
-  }
+    );
+  };
 
   return (
     <motion.div
@@ -50,20 +80,20 @@ export default function SkillCard({ name, icon, level, delay = 0, onMouseEnter, 
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay }}
       onHoverStart={() => {
-        setIsHovered(true)
-        sethoveredIndex(index)
+        setIsHovered(true);
+        sethoveredIndex(index);
       }}
       onHoverEnd={() => {
-        setIsHovered(false)
-        sethoveredIndex(null)
+        setIsHovered(false);
+        sethoveredIndex(null);
       }}
       onTouchStart={() => {
-        setIsHovered(true)
-        sethoveredIndex(index)
+        setIsHovered(true);
+        sethoveredIndex(index);
       }}
       onTouchEnd={() => {
-        setIsHovered(false)
-        sethoveredIndex(null)
+        setIsHovered(false);
+        sethoveredIndex(null);
       }}
       whileHover={{
         y: -5,
@@ -73,11 +103,12 @@ export default function SkillCard({ name, icon, level, delay = 0, onMouseEnter, 
       onMouseLeave={onMouseLeave}
     >
       <Card className="overflow-hidden h-full border-0 relative shadow-lg  group">
-
         <CardContent className="p-6 ">
-
-          <div className={`relative p-5 backdrop-blur-sm bg-gradient-to-r from-[#20093c5f] to-transparent border-[hsl(262.1,83.3%,57.8%)] ${isHovered ? " border-[1px] " : " border-l-4 " }  rounded-md`}  >
-
+          <div
+            className={`relative p-5 backdrop-blur-sm bg-gradient-to-r from-[#20093c5f] to-transparent border-[hsl(262.1,83.3%,57.8%)] ${
+              isHovered ? " border-[1px] " : " border-l-4 "
+            }  rounded-md`}
+          >
             {/* Corner accents that appear on hover */}
             <motion.div
               className="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-[hsl(262.1,83.3%,57.8%)] rounded-tl-md opacity-0 group-hover:opacity-100 transition-opacity"
@@ -106,7 +137,9 @@ export default function SkillCard({ name, icon, level, delay = 0, onMouseEnter, 
                 <h3 className="text-lg font-semibold text-white">{name}</h3>
                 <motion.p
                   className="text-sm text-white"
-                  animate={isHovered ? { y: 0, opacity: 1 } : { y: 0, opacity: 1 }}
+                  animate={
+                    isHovered ? { y: 0, opacity: 1 } : { y: 0, opacity: 1 }
+                  }
                   initial={{ y: 10, opacity: 0 }}
                 >
                   {level}% Proficiency
@@ -115,7 +148,6 @@ export default function SkillCard({ name, icon, level, delay = 0, onMouseEnter, 
             </div>
 
             <div className="h-3 w-full rounded-full overflow-hidden shadow-inner relative">
-
               <motion.div
                 className="h-full bg-gradient-to-r from-indigo-500 to-purple-500 relative"
                 initial={{ width: 0 }}
@@ -166,5 +198,5 @@ export default function SkillCard({ name, icon, level, delay = 0, onMouseEnter, 
         </CardContent>
       </Card>
     </motion.div>
-  )
+  );
 }

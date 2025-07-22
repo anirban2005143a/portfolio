@@ -6,6 +6,7 @@ import SkillCard from "./skill-card"
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Image from 'next/image'
+
 gsap.registerPlugin(ScrollTrigger)
 
 const Skill = ({setSkillLoader}) => {
@@ -15,12 +16,13 @@ const Skill = ({setSkillLoader}) => {
 
     const skills = [
         { name: "React", icon: "react", level: 90 },
-        { name: "Next.js", icon: "nextjs", level: 70 },
+        { name: "Next.js", icon: "nextjs", level: 80 },
         { name: "Three.js", icon: "typescript", level: 55 },
         { name: "Tailwind CSS", icon: "tailwind", level: 90 },
-        { name: "Node.js", icon: "nodejs", level: 75 },
         { name: "Mongo DB", icon: "mongodb", level: 80 },
         { name: "PostgreSQL", icon: "postgre", level: 50 },
+        { name: "Docker", icon: "postgre", level: 60 },
+        { name: "Node.js", icon: "nodejs", level: 75 },
     ]
 
     useEffect(() => {
