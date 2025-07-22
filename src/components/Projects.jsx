@@ -1,52 +1,114 @@
-"use client"
+"use client";
 
-import { useInView, motion } from 'framer-motion'
-import React, { useEffect, useRef, useState } from 'react'
-import { ProjectCard } from './project-card'
-import { ExternalLink } from 'lucide-react'
-import Image from 'next/image'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { useInView, motion } from "framer-motion";
+import React, { useEffect, useRef, useState } from "react";
+import { ProjectCard } from "./project-card";
+import { ExternalLink } from "lucide-react";
+import Image from "next/image";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger);
 
-const Projects = ({setProjectLoader}) => {
-
-  const projectRef = useRef([])
-  const [isHovered, setisHovered] = useState(false)
+const Projects = ({ setProjectLoader }) => {
+  const projectRef = useRef([]);
+  const [isHovered, setisHovered] = useState(false);
 
   const projects = [
     {
-      title: "E-commerce Platform",
-      description: "A full-stack e-commerce platform with payment integration and admin dashboard.",
-      image: "/anirban.png",
+      title: `AI-Powered Indian Legal Judgment Summarization`,
+      description: `Instantly <strong>analyze</strong> and <strong>summarize</strong> Indian court judgments using 
+    <em>advanced AI models</em>. Built for <strong>legal professionals</strong>, <strong>law students</strong>, and 
+    <strong>researchers</strong> who need clarity, speed, and accuracy in legal research.`,
+      image: [
+        "/projects/legalSummarization/img1.png",
+        "/projects/legalSummarization/img2.png",
+        "/projects/legalSummarization/img3.png",
+        "/projects/legalSummarization/img4.png",
+      ], // multiple images for slideshow
       tags: ["Next.js", "TypeScript", "Stripe", "Tailwind CSS"],
-      github: "#",
-      demo: "#",
+      slideshow: true,
+      ongoing: true,
     },
     {
-      title: "Task Management App",
-      description: "A collaborative task management application with real-time updates.",
-      image: "/anirban.png",
-      tags: ["React", "Firebase", "Tailwind CSS", "Redux"],
-      github: "#",
-      demo: "#",
+      title: "Code Fusion",
+      description: `
+    <p><strong>Code Fusion</strong> is an <em>online code editor</em> supporting real-time collaboration, multiple languages, and customizable themes.</p>
+    <ul>
+      <li>Enables multiple developers to collaborate in real-time with <strong>live cursor tracking</strong> and integrated in-app chat for seamless communication.</li>
+      <li>Integrates <strong>auto-completion</strong>, <strong>real-time syntax error detection</strong>, and <strong>persistent code-saving functionality</strong>.</li>
+      <li>Offers various themes, <em>multi-language support</em>, and a <strong>collapsible sidebar</strong> for efficient file management.</li>
+    </ul>
+  `,
+      image: [
+        "/projects/codeFusion/img1.png",
+        "/projects/codeFusion/img2.png",
+        "/projects/codeFusion/img3.png",
+        "/projects/codeFusion/img4.png",
+        "/projects/codeFusion/img5.png",
+      ],
+      tags: ["React.js", "Flask", "Express.js", "MongoDB", "Tailwind CSS"],
+      github: "https://github.com/anirban2005143a/code-Fusion",
+      demo: "https://code-fusion-code-collab.vercel.app/",
+      slideshow: true,
+    },
+
+    {
+      title: "NoteBridge",
+      description: `
+    <p><strong>NoteBridge</strong> is built using <em>React.js</em>, <em>Express.js</em>, <em>MongoDB</em>, and <em>Bootstrap</em>.</p>
+    <ul>
+      <li>A feature-rich <strong>note-taking and sharing platform</strong> that enables structured organization through folders and facilitates seamless file sharing with controlled access.</li>
+      <li>Enables <strong>interactive engagement</strong> through features like <strong>likes</strong>, <strong>comments</strong>, and <strong>shares</strong>.</li>
+      <li>Provides a comprehensive profile page displaying the <strong>total number of posts, followers, and following</strong>, along with an organized archive of past posts for easy access and engagement.</li>
+    </ul>
+  `,
+      image: [
+        "/projects/noteBridge/img1.png",
+        "/projects/noteBridge/img2.png",
+        "/projects/noteBridge/img3.png",
+        "/projects/noteBridge/img4.png",
+        "/projects/noteBridge/img5.png",
+        "/projects/noteBridge/img6.png",
+        "/projects/noteBridge/img7.png",
+        "/projects/noteBridge/img8.png",
+      ],
+      tags: ["React.js", "Express.js", "MongoDB", "Bootstrap"],
+      github: "https://github.com/anirban2005143a/note-bridge",
+      demo: "https://notebridge.vercel.app/",
+      slideshow: true,
     },
     {
-      title: "Portfolio Website",
-      description: "A responsive portfolio website with animations and dark mode support.",
-      image: "/anirban.png",
-      tags: ["Next.js", "Framer Motion", "Tailwind CSS"],
-      github: "#",
-      demo: "#",
+      title: "Movie Flix",
+      tags: ["React.js", "Node.js", "Express.js", "MongoDB"],
+      description: `<strong>Movie Flix</strong> — <em>Winner of Winter Of Code 6.O</em> in the <strong>Web Development Division</strong>, 
+      a one-month long hackathon conducted by <strong>CyberLabs, IIT(ISM) Dhanbad</strong>. Movie Flix is a dynamic movie application 
+      where users can discover a wide range of <strong>movies and web series</strong> across different <strong>genres</strong> 
+      and <strong>languages</strong>. It features powerful <strong>search functionality</strong>, allowing users to quickly find titles 
+      of interest. Users can <strong>rate</strong>, <strong>like</strong>, and <strong>add movies to their wishlist</strong> for 
+      future viewing. The platform also includes robust <strong>authentication</strong> to ensure secure and personalized user access, 
+      making it a fully engaging entertainment experience.`,
+      image: [
+        "/projects/movieFlix/img1.png",
+        "/projects/movieFlix/img2.png",
+        "/projects/movieFlix/img3.png",
+        "/projects/movieFlix/img4.png",
+        "/projects/movieFlix/img5.png",
+        "/projects/movieFlix/img6.png",
+        "/projects/movieFlix/img7.png",
+        "/projects/movieFlix/img8.png",
+        "/projects/movieFlix/img9.png",
+      ],
+      slideshow: true,
+      github: "https://github.com/anirban2005143a/movieflix",
+      demo: "https://your-deployed-link.com",
     },
-  ]
+  ];
 
   useEffect(() => {
-    projectRef.current && projectRef.current.forEach((el, index) => {
-      gsap.to(
-        el,
-        {
+    projectRef.current &&
+      projectRef.current.forEach((el, index) => {
+        gsap.to(el, {
           opacity: 1,
           x: 0,
           duration: 1,
@@ -57,35 +119,33 @@ const Projects = ({setProjectLoader}) => {
             start: "top 75%",
             toggleActions: "play none none reverse",
           },
-        }
-      )
-    })
-  }, [projectRef.current])
+        });
+      });
+  }, [projectRef.current]);
 
   return (
     <>
       {/* Projects Section */}
       <section id="projects" className="section relative pb-20">
-
         {/* top image  */}
-        <div className=' absolute top-0 right-0  md:w-[500px] w-full '>
+        <div className=" absolute top-0 right-0  md:w-[500px] w-full ">
           <Image
             alt="top right image"
             height={500}
             width={500}
-            src='/flowers/projects/top-right.png'
-            className=' w-full'
+            src="/flowers/projects/top-right.png"
+            className=" w-full"
           />
         </div>
 
         {/* bottom image  */}
-        <div className=' absolute md:bottom-0 -bottom-[350px] -right-5 md:w-[500px] w-full z-10 '>
+        <div className=" absolute md:bottom-0 -bottom-[350px] -right-5 md:w-[500px] w-full z-10 ">
           <Image
             alt="top right image"
             height={500}
             width={500}
-            src='/flowers/projects/bottom-right.png'
-            className=' w-full relative '
+            src="/flowers/projects/bottom-right.png"
+            className=" w-full relative "
           />
         </div>
 
@@ -134,16 +194,14 @@ const Projects = ({setProjectLoader}) => {
           ></motion.div>
         </div>
 
-
         {/* card content  */}
-        <div className=' px-4 md:px-6 lg:px-8 max-w-6xl mx-auto relative md:pt-20 pt-[400px] z-10'>
+        <div className=" px-4 md:px-6 lg:px-8 max-w-6xl mx-auto relative md:pt-20 pt-[400px] z-10">
           <motion.div>
-
             {/* Cards */}
             <div className=" relative flex flex-col items-start ">
               {projects.map((project, index) => (
                 <ProjectCard
-                  divref={el => projectRef.current[index] = el}
+                  divref={(el) => (projectRef.current[index] = el)}
                   key={index}
                   project={project}
                   index={index}
@@ -151,7 +209,7 @@ const Projects = ({setProjectLoader}) => {
               ))}
 
               {/* View all button */}
-              <div className=" md:w-[500px] w-full my-10">
+              {/* <div className=" md:w-[500px] w-full my-10">
                 <button
                   onMouseOver={() => setisHovered(true)}
                   onMouseLeave={() => setisHovered(false)}
@@ -165,18 +223,18 @@ const Projects = ({setProjectLoader}) => {
                 >
                   View All Projects
                   <ExternalLink
-                    className={`ml-2 w-4 h-4 text-white ${isHovered ? " translate-x-1 " : ""} transition-transform`} />
+                    className={`ml-2 w-4 h-4 text-white ${
+                      isHovered ? " translate-x-1 " : ""
+                    } transition-transform`}
+                  />
                 </button>
-
-              </div>
+              </div> */}
             </div>
-
-
           </motion.div>
         </div>
       </section>
     </>
-  )
-}
+  );
+};
 
-export default Projects
+export default Projects;
