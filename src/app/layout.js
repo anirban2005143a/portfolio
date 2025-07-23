@@ -20,13 +20,17 @@ const rubik = Rubik({
 });
 
 export const metadata = {
-  title: "Anirban Das | Full Stack Developer | Google Intern 2026",
+  title: "Anirban Das | Google Intern 2026 | Full Stack Developer",
   description:
     "Portfolio of Anirban Das — Full Stack Developer skilled in React, Node.js, and C++. Upcoming Google Summer Intern 2026. Explore projects like Code Fusion and NoteBridge. CSE student at IIT(ISM) Dhanbad | LeetCode | Codeforces | Gofloww Developer.",
   keywords: [
+    "Anirban",
     "Anirban Das",
-    "Google Summer Internship 2026",
+    "Google",
     "Google Intern",
+    "Google Summer",
+    "Summer Internship",
+    "Google Summer Internship 2026",
     "Full Stack Developer",
     "React Developer",
     "Node.js Developer",
@@ -36,6 +40,7 @@ export const metadata = {
     "IIT ISM Dhanbad",
     "Code Fusion",
     "NoteBridge",
+    "Gofloww",
     "Gofloww Developer",
     "LeetCode",
     "Codeforces",
