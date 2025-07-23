@@ -180,7 +180,7 @@ const Projects = ({ setProjectLoader }) => {
         <div className=" px-4 md:px-6 lg:px-8 max-w-6xl mx-auto relative md:pt-20 pt-[400px] z-10">
           <motion.div>
             {/* Cards */}
-            <div className=" relative flex flex-col items-start ">
+            <div className=" relative flex flex-col items-start  ">
               {projects.map((project, index) => {
                 // Create a ref per project
                 const ref = useRef(null);

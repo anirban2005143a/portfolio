@@ -20,13 +20,13 @@ export function ProjectCard({
     <motion.div
       ref={divref}
       initial={{ opacity: 0, x: -200 }}
-      animate={isInView ? { opacity: 1, x: 200 } : {}}
+      animate={isInView ? { opacity: 1, x: 0 } : {}}
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
       onTouchStart={() => setIsHovered(true)}
       onTouchEnd={() => setIsHovered(false)}
       transition={{ duration: 0.5, ease: "easeOut" }}
-      className={` md:w-[500px] py-5 -translate-x-[200px] opacity-0 border-white ${
+      className={` md:w-[500px] py-5 opacity-0 border-white  ${
         index < 2 ? " border-b-2 " : ""
       }`}
     >
