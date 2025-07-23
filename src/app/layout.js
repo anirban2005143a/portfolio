@@ -27,6 +27,7 @@ export const metadata = {
     "Portfolio of Anirban Das — Full Stack Developer skilled in React, Node.js, and C++. Upcoming Google Summer Intern 2026. Explore projects like Code Fusion and NoteBridge. CSE student at IIT(ISM) Dhanbad | LeetCode | Codeforces | Gofloww Developer.",
   keywords: [
     "Anirban",
+    "IIT ISM Dhanbad",
     "Anirban Das",
     "Google",
     "Google Intern",
@@ -39,7 +40,6 @@ export const metadata = {
     "MERN Stack",
     "Web Developer Portfolio",
     "Competitive Programmer",
-    "IIT ISM Dhanbad",
     "Code Fusion",
     "NoteBridge",
     "Gofloww",
