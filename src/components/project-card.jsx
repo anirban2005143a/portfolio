@@ -12,17 +12,20 @@ export function ProjectCard({
   onMouseEnter,
   onMouseLeave,
   divref,
+  isInView,
 }) {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
     <motion.div
       ref={divref}
+      initial={{ opacity: 0, x: -200 }}
+      animate={isInView ? { opacity: 1, x: 200 } : {}}
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
       onTouchStart={() => setIsHovered(true)}
       onTouchEnd={() => setIsHovered(false)}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
       className={` md:w-[500px] py-5 -translate-x-[200px] opacity-0 border-white ${
         index < 2 ? " border-b-2 " : ""
       }`}
@@ -110,14 +113,14 @@ export function ProjectCard({
           <motion.div whileHover={{ y: -8 }}>
             <div className="flex flex-col  flex-grow p-6 z-0">
               <h3 className="text-xl font-medium mb-2 text-violet-500 inline-block">
-                <strong > {project.title}</strong>
-                 {project.ongoing && (
-                <span className=" ml-2 inline-block bg-violet-800 text-white text-xs tracking-[1px] font-medium px-2 py-1 rounded-full z-30 shadow-md">
-                  Ongoing
-                </span>
-              )}
+                <strong> {project.title}</strong>
+                {project.ongoing && (
+                  <span className=" ml-2 inline-block bg-violet-800 text-white text-xs tracking-[1px] font-medium px-2 py-1 rounded-full z-30 shadow-md">
+                    Ongoing
+                  </span>
+                )}
               </h3>
-             
+
               <p
                 className="text-zinc-400 mb-4 flex-grow"
                 dangerouslySetInnerHTML={{ __html: project.description }}

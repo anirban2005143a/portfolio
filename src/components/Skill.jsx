@@ -1,18 +1,13 @@
+
 "use client"
 
-import React, { useRef, useEffect } from 'react'
+import React, { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import SkillCard from "./skill-card"
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Image from 'next/image'
 
-gsap.registerPlugin(ScrollTrigger)
-
-const Skill = ({setSkillLoader}) => {
-
-    const skillsRef = useRef([])
-    const skillsInView = useInView(skillsRef, { once: true, amount: 0.2 })
+const Skill = ({ setSkillLoader }) => {
+    const containerRef = useRef(null)
 
     const skills = [
         { name: "React", icon: "react", level: 90 },
@@ -21,36 +16,14 @@ const Skill = ({setSkillLoader}) => {
         { name: "Tailwind CSS", icon: "tailwind", level: 90 },
         { name: "Mongo DB", icon: "mongodb", level: 80 },
         { name: "PostgreSQL", icon: "postgre", level: 50 },
-        { name: "Docker", icon: "postgre", level: 60 },
+        { name: "Docker", icon: "docker", level: 60 },
         { name: "Node.js", icon: "nodejs", level: 75 },
     ]
 
-    useEffect(() => {
-        skillsRef.current && skillsRef.current.forEach((el, index) => {
-            gsap.fromTo(
-                el,
-                { opacity: 0, x: -100 },
-                {
-                    opacity: 1,
-                    x: 0,
-                    duration: 0.8,
-                    delay: index * 0.1,
-                    ease: "power3.out",
-                    scrollTrigger: {
-                        trigger: el,
-                        start: "top 80%",
-                        toggleActions: "play none none reverse",
-                    },
-                }
-            )
-        })
-    }, [skillsRef.current])
-
     return (
-
         <>
             {/* Skills Section */}
-            <section id="skills" className="section  relative ">
+            <section id="skills" className="section relative">
 
                 {/* top flower  */}
                 <div className=' absolute top-0  left-0  md:w-[500px] w-[350px] z-1'>
@@ -100,7 +73,7 @@ const Skill = ({setSkillLoader}) => {
                         }}
                         transition={{
                             duration: 5,
-                            repeat: Number.POSITIVE_INFINITY,
+                            repeat: Infinity,
                             ease: "easeInOut",
                         }}
                     ></motion.div>
@@ -113,28 +86,40 @@ const Skill = ({setSkillLoader}) => {
                         }}
                         transition={{
                             duration: 7,
-                            repeat: Number.POSITIVE_INFINITY,
+                            repeat: Infinity,
                             ease: "easeInOut",
                         }}
                     ></motion.div>
                 </div>
 
-                <div className=' py-20 px-2 md:px-6 lg:px-8 max-w-6xl mx-auto relative'>
+                <div className='py-20 px-2 md:px-6 lg:px-8 max-w-6xl mx-auto relative' ref={containerRef}>
                     <div className="flex flex-col gap-8 items-end md:pt-0 pt-40">
-                        {skills.map((skill, index) => (
-                            <div
-                                className=' max-w-lg w-full'
-                                key={index}
-                                ref={el => skillsRef.current[index] = el}
-                            >
-                                <SkillCard
-                                    name={skill.name}
-                                    icon={skill.icon}
-                                    level={skill.level}
-                                    index={index}
-                                />
-                            </div>
-                        ))}
+                        {skills.map((skill, index) => {
+                            const ref = useRef(null)
+                            const isInView = useInView(ref, { once: true, amount: 0.2 })
+
+                            return (
+                                <motion.div
+                                    key={index}
+                                    ref={ref}
+                                    initial={{ opacity: 0, x: -100 }}
+                                    animate={isInView ? { opacity: 1, x: 0 } : {}}
+                                    transition={{
+                                        duration: 0.8,
+                                        delay: index * 0.1,
+                                        ease: "easeOut",
+                                    }}
+                                    className="max-w-lg w-full"
+                                >
+                                    <SkillCard
+                                        name={skill.name}
+                                        icon={skill.icon}
+                                        level={skill.level}
+                                        index={index}
+                                    />
+                                </motion.div>
+                            )
+                        })}
                     </div>
                 </div>
             </section>
@@ -143,3 +128,4 @@ const Skill = ({setSkillLoader}) => {
 }
 
 export default Skill
+

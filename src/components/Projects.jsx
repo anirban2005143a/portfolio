@@ -11,7 +11,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const Projects = ({ setProjectLoader }) => {
-  const projectRef = useRef([]);
+  const cardRefs  = useRef([]);
   const [isHovered, setisHovered] = useState(false);
 
   const projects = [
@@ -105,24 +105,6 @@ const Projects = ({ setProjectLoader }) => {
     },
   ];
 
-  useEffect(() => {
-    projectRef.current &&
-      projectRef.current.forEach((el, index) => {
-        gsap.to(el, {
-          opacity: 1,
-          x: 0,
-          duration: 1,
-          delay: index * 0.1,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: el,
-            start: "top 75%",
-            toggleActions: "play none none reverse",
-          },
-        });
-      });
-  }, [projectRef.current]);
-
   return (
     <>
       {/* Projects Section */}
@@ -199,14 +181,26 @@ const Projects = ({ setProjectLoader }) => {
           <motion.div>
             {/* Cards */}
             <div className=" relative flex flex-col items-start ">
-              {projects.map((project, index) => (
-                <ProjectCard
-                  divref={(el) => (projectRef.current[index] = el)}
-                  key={index}
-                  project={project}
-                  index={index}
-                />
-              ))}
+              {projects.map((project, index) => {
+                // Create a ref per project
+                const ref = useRef(null);
+                cardRefs.current[index] = ref.current;
+
+                // Observe the ref
+                const isInView = useInView(ref, {
+                  once: true,
+                  amount: 0.2,
+                });
+                return (
+                  <ProjectCard
+                    divref={ref}
+                    isInView={isInView}
+                    key={index}
+                    project={project}
+                    index={index}
+                  />
+                );
+              })}
 
               {/* View all button */}
               {/* <div className=" md:w-[500px] w-full my-10">
