@@ -3,7 +3,7 @@ import "./style.css"
 
 export const Loader = () => {
   return (
-    <div className=" w-screen h-screen flex justify-center items-center bg-[radial-gradient(circle_at_center,_#3a0057_0%,_#000014_40%,_#000000_80%)]  ">
+    <div className=" w-screen h-[100dvh] flex justify-center items-center bg-[radial-gradient(circle_at_center,_#3a0057_0%,_#000014_40%,_#000000_80%)]  ">
       <div id="loader" className="containerLoader ">
         <div className="cloud front">
           <span className="left-front"></span>
