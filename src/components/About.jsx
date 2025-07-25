@@ -10,7 +10,7 @@ const About = ({ setAboutLoader }) => {
 
   return (
     <section id="about" className="section relative  text-gray-900 ">
-      <div className=" px-4 md:pt-[150px] pt-[50px] pb-[100px] md:px-6 lg:px-8 max-w-6xl mx-auto">
+      <div className=" px-4 md:pt-[150px] pt-[50px] pb-[100px] md:px-6 lg:px-8 max-w-[1500px] mx-auto">
         {/* top right flower  */}
         <div className=" md:w-[600px] w-full absolute  -top-50 -right-15 z-20">
           <Image

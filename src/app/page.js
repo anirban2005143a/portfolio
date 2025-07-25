@@ -22,7 +22,7 @@ export default function Home() {
     <>
       {isLoading && <Loader />}
 
-      <div className={`${isLoading ? "hidden" : ""} bg-black overflow-hidden`}>
+      <div className={`${isLoading ? "hidden" : ""} bg-black overflow-hidden `}>
         <Progressbar />
         <FloatingNav />
         <HeroSection />

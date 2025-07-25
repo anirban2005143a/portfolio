@@ -92,7 +92,7 @@ const Skill = ({ setSkillLoader }) => {
                     ></motion.div>
                 </div>
 
-                <div className='py-20 px-2 md:px-6 lg:px-8 max-w-6xl mx-auto relative' ref={containerRef}>
+                <div className='py-20 px-2 md:px-6 lg:px-8 max-w-[1500px] mx-auto relative' ref={containerRef}>
                     <div className="flex flex-col gap-8 items-end md:pt-0 pt-40">
                         {skills.map((skill, index) => {
                             const ref = useRef(null)

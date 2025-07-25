@@ -76,7 +76,7 @@ const Contact = () => {
       <section
         ref={ref}
         id="contact"
-        className="section pb-20 md:mt-0 mt-[200px] px-4 md:px-6 lg:px-8 max-w-6xl mx-auto relative z-10"
+        className="section pb-20 md:mt-0 mt-[200px] px-4 md:px-6 lg:px-8 max-w-[1500px] mx-auto relative z-10"
       >
         {/* <div className="absolute inset-0 -z-10  " /> */}
 
