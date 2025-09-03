@@ -7,43 +7,18 @@ import { ExternalLink } from "lucide-react";
 import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Router from "next/router";
-import { useRouter } from "next/navigation";
 import { projects } from "@/lib/projects";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Projects = ({ setProjectLoader }) => {
+const AllProjects = ({ setProjectLoader }) => {
   const cardRefs = useRef([]);
   const [isHovered, setisHovered] = useState(false);
-  const router = useRouter();
 
   return (
     <>
       {/* Projects Section */}
-      <section id="projects" className="section relative pb-20">
-        {/* top image  */}
-        <div className=" absolute top-0 right-0  md:w-[500px] w-full ">
-          <Image
-            alt="top right image"
-            height={500}
-            width={500}
-            src="/flowers/projects/top-right.png"
-            className=" w-full"
-          />
-        </div>
-
-        {/* bottom image  */}
-        <div className=" absolute md:bottom-0 -bottom-[350px] -right-5 md:w-[500px] w-full z-10 ">
-          <Image
-            alt="top right image"
-            height={500}
-            width={500}
-            src="/flowers/projects/bottom-right.png"
-            className=" w-full relative "
-          />
-        </div>
-
+      <section id="projects" className="section relative pb-20 bg-black">
         {/* Gradient Orbs/Balls */}
         <div className="absolute w-full h-full top-0 left-0 overflow-y-visible z-0">
           {/* Large purple orb */}
@@ -93,9 +68,8 @@ const Projects = ({ setProjectLoader }) => {
         <div className=" px-4 md:px-6 lg:px-8 max-w-[1500px] mx-auto relative md:pt-20 pt-[400px] z-10">
           <motion.div>
             {/* Cards */}
-            <div className=" relative flex flex-col items-start  ">
+            <div className=" relative grid md:grid-cols-2  ">
               {projects.map((project, index) => {
-                if (index > 3) return;
                 // Create a ref per project
                 const ref = useRef(null);
                 cardRefs.current[index] = ref.current;
@@ -115,32 +89,6 @@ const Projects = ({ setProjectLoader }) => {
                   />
                 );
               })}
-
-              {/* View all button */}
-              <div className=" md:w-[500px] w-full my-10">
-                <button
-                  onMouseOver={() => setisHovered(true)}
-                  onMouseLeave={() => setisHovered(false)}
-                  onTouchStart={() => setisHovered(true)}
-                  onTouchEnd={() => setisHovered(false)}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    router.push("/projects");
-                  }}
-                  className={`
-                  border-[#ffffff]/20  text-white mx-auto
-                  ${isHovered ? " bg-[#1a0826b4] " : " bg-opacity-10 "}
-                  flex items-center justify-center gap-2 text-sm font-medium  
-                  rounded-full px-6 py-2 border-2 transition-all `}
-                >
-                  View All Projects
-                  <ExternalLink
-                    className={`ml-2 w-4 h-4 text-white ${
-                      isHovered ? " translate-x-1 " : ""
-                    } transition-transform`}
-                  />
-                </button>
-              </div>
             </div>
           </motion.div>
         </div>
@@ -149,4 +97,4 @@ const Projects = ({ setProjectLoader }) => {
   );
 };
 
-export default Projects;
+export default AllProjects;
