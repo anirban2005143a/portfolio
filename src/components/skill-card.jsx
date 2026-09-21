@@ -2,7 +2,13 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import {} from "lucide-react";
+import {
+  Code2,
+  BrainCircuit,
+  Network,
+  Server,
+  Database,
+} from "lucide-react";
 import { Card, CardContent } from "./ui/card";
 import {
   SiReact,
@@ -47,17 +53,22 @@ export default function SkillCard({
       mongodb: <SiMongodb size={28} />,
       postgre: <SiPostgresql size={28} />,
       docker: <SiDocker size={28} />,
+      fullstack: <Code2 size={28} />,
+      ai: <BrainCircuit size={28} />,
+      systemdesign: <Network size={28} />,
+      backend: <Server size={28} />,
+      database: <Database size={28} />,
     };
 
     const colors = {
-      react: "from-blue-400 to-blue-600",
-      nextjs: "from-gray-700 to-black",
-      typescript: "from-purple-500 to-purple-700",
-      nodejs: "from-green-500 to-green-700",
-      tailwind: "from-cyan-400 to-cyan-600",
-      mongodb: "from-green-300 to-green-500",
-      postgre: "from-blue-500 to-cyan-300",
-      docker: "from-blue-400 to-blue-700",
+      fullstack: "from-blue-400 to-blue-600",
+      ai: "from-gray-700 to-black",
+      systemdesign: "from-purple-500 to-purple-700",
+      backend: "from-green-500 to-green-700",
+      database: "from-cyan-400 to-cyan-600",
+      // mongodb: "from-green-300 to-green-500",
+      // postgre: "from-blue-500 to-cyan-300",
+      // docker: "from-blue-400 to-blue-700",
     };
 
     return (

@@ -1,5 +1,95 @@
 export const projects = [
   {
+    title: `Research Agent`,
+    description: `
+    <ul>
+      <li>Built a <strong>multi-step AI research agent</strong> using <strong>LangGraph</strong> that plans research tasks, autonomously selects tools, gathers evidence from <strong> Web,Wikipedia, and ArXiv, </strong> and generates citation-grounded research responses.</li>
+
+      <li>Developed a <em><strong>hybrid RAG pipeline</strong></em> with <strong>ChromaDB</strong> and local <strong>BAAI/bge-m3 embeddings</strong>, combining <strong>dense retrieval,
+      BM25 lexical search, Reciprocal Rank Fusion (RRF), and cross-encoder reranking</strong> for relevant document retrieval.</li>
+      <li>Implemented <strong>quality-controlled generation</strong>  with LLM-based critique and iterative revision, human-in-the-loop clarification, session-isolated document storage, multi-format document ingestion, and <strong>Streamlit</strong> research workflow visualization.</li>
+    </ul>
+    `,
+    image: [
+      "/projects/researchAgent/query 1-1.png",
+      "/projects/researchAgent/query 2-1.png",
+      "/projects/researchAgent/query 2-2.png",
+    ], // multiple images for slideshow
+    tags: ["Python", "LangGraph", "LangChain", "ChromaDB", "Hugging Face", "Streamlit"],
+    slideshow: true,
+    github:"https://github.com/anirban2005143a/research_agent",
+    demo:"https://github.com/anirban2005143a/research_agent/blob/main/recordings%20and%20screenshots/recording.mp4"
+    // ongoing: true,
+  },
+  {
+    title: `JobPilot`,
+    description: `
+    <ul>
+      <li><strong>AI-powered automatic job application platform</strong> that finds and applies to jobs based on user profile and resumes.</li>
+      <li>Built a <em><strong>modular asynchronous system</strong></em> using <strong>BullMQ</strong>with independent workers managing the complete job lifecycle from collection and matching to scheduling, applications, status checks, notifications, and recovery.</li>
+      <li>Implemented a common <strong>JobSource interface</strong> to integrate different job portals, along with a dedicated <strong>FastAPI AI service</strong> for resume parsing, job matching, and application content generation.</li>
+    </ul>
+    `,
+    image: [
+      // "/projects/legalSummarization/img1.png",
+      // "/projects/legalSummarization/img2.png",
+      // "/projects/legalSummarization/img3.png",
+      // "/projects/legalSummarization/img4.png",
+    ], // multiple images for slideshow
+    tags: ["Node.js", "Next.js (TypeScript)", "FastAPI", "BullMQ", "Redis", "MongoDB"],
+    slideshow: true,
+    github:"https://github.com/anirban2005143a/job_pilot"
+    // ongoing: true,
+  },
+  {
+    title: `NYC TLC Taxi Trip Analysis`,
+    description: `
+    <ul>
+      <li>Performed end-to-end analysis of <strong>NYC TLC Yellow Taxi trip data</strong>, including data exploration, quality assessment,
+cleaning, and preparation using <strong>Python and Pandas</strong>.</li>
+      <li>Analyzed <strong>trip, fare, payment, time, passenger, and location patterns</strong> and stored the cleaned dataset in <strong>PostgreSQL</strong>
+for structured analysis.</li>
+      <li>Built an interactive <strong>Power BI dashboard</strong> with filters and visualizations to analyze taxi demand, trip characteristics,
+fares, payment behavior, and geographic activity.</li>
+    </ul>
+    `,
+    image: [
+      "/projects/NYC_Taxi_Trip/Fare, Payment & Revenue Analysis.png",
+      "/projects/NYC_Taxi_Trip/Trip Efficiency, Geography & Data Quality.png",
+      "/projects/NYC_Taxi_Trip/Trip Overview & Demand.png",
+    ], // multiple images for slideshow
+    tags: ["Python", "Pandas", "PostgreSQL", "Power BI"],
+    slideshow: true,
+    github:"https://github.com/anirban2005143a/NYC-TLC-Analysis",
+    // ongoing: true,
+    demo:"https://github.com/anirban2005143a/NYC-TLC-Analysis/blob/main/NYC_Taxi_Trip_recoding.mp4"
+  },
+  {
+    title: `Food Delivery Analytics Dashboard`,
+    description: `
+    <ul>
+      <li>Cleaned and transformed <strong>customer, order, and restaurant data</strong> using <strong>Python/Jupyter and Power Query</strong>, preparing datasets for business analysis.</li>
+      <li>Developed <strong>DAX-based analytical measures</strong> and a relational Power BI data model to analyze revenue, orders,
+customer behavior, restaurant performance, and delivery operations.</li>
+      <li>Built an interactive <strong>6-page Power BI dashboard</strong> with dynamic metrics, filters, cross-filtering, and drill-downs for
+executive, customer, restaurant, and operational analysis.</li>
+    </ul>
+    `,
+    image: [
+      "/projects/food_delivery_app_dashboard/Advance Insights.png",
+      "/projects/food_delivery_app_dashboard/Customer Analytics.png",
+      "/projects/food_delivery_app_dashboard/Delivery and Operations.png",
+      "/projects/food_delivery_app_dashboard/Executive Overview.png",
+      "/projects/food_delivery_app_dashboard/Restaurant Details.png",
+      "/projects/food_delivery_app_dashboard/Restaurant Performace.png",
+    ], // multiple images for slideshow
+    tags: ["Python", "Pandas", "Power Query", "DAX", "Power BI", "Excel"],
+    slideshow: true,
+    github:"https://github.com/anirban2005143a/Food-Delivery-App-Dashboard",
+    // ongoing: true,
+    demo:"https://github.com/anirban2005143a/Food-Delivery-App-Dashboard/blob/main/food_delivery_app_recording.mp4"
+  },
+  {
     title: `AI-Powered Indian Legal Judgment Summarization`,
     description: `Instantly <strong>analyze</strong> and <strong>summarize</strong> Indian court judgments using 
     <em>advanced AI models</em>. Built for <strong>legal professionals</strong>, <strong>law students</strong>, and 
@@ -46,7 +136,7 @@ export const projects = [
       "AI-powered Accounting",
     ],
     github: "",
-    demo: "https://books.gofloww.co/",
+    // demo: "https://books.gofloww.co/",
     slideshow: true,
   },
   {

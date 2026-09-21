@@ -10,14 +10,11 @@ const Skill = ({ setSkillLoader }) => {
     const containerRef = useRef(null)
 
     const skills = [
-        { name: "React", icon: "react", level: 90 },
-        { name: "Next.js", icon: "nextjs", level: 80 },
-        { name: "Three.js", icon: "typescript", level: 55 },
-        { name: "Tailwind CSS", icon: "tailwind", level: 90 },
-        { name: "Mongo DB", icon: "mongodb", level: 80 },
-        { name: "PostgreSQL", icon: "postgre", level: 50 },
-        { name: "Docker", icon: "docker", level: 60 },
-        { name: "Node.js", icon: "nodejs", level: 75 },
+        { name: "Full-Stack Development", icon: "fullstack", level: 60 },
+        { name: "AI & Agentic Applications", icon: "ai", level: 50 },
+        { name: "System Design", icon: "systemdesign", level: 40 },
+        { name: "Backend Development", icon: "backend", level: 55 },
+        { name: "Database & Data Engineering", icon: "database", level: 55 },
     ]
 
     return (

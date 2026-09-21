@@ -46,13 +46,13 @@ const About = ({ setAboutLoader }) => {
 
               <div className="space-y-4">
                 {[
-                  `I’m a <strong>passionate full-stack developer</strong> currently pursuing my <strong>B.Tech in Computer Science and Engineering at IIT (ISM) Dhanbad</strong>. I love building clean, responsive, and accessible web applications using modern JavaScript frameworks.`,
+                  `I’m a <strong>passionate full-stack developer</strong> currently pursuing my <strong>B.Tech in Computer Science and Engineering at IIT (ISM) Dhanbad</strong>. I love building clean, responsive, and accessible web applications.`,
 
-                  `At <strong>GoFloww</strong>, I’m interning as a <strong>Frontend Developer</strong> — leading the <em>Atom Accounting</em> platform from scratch. I handle <strong>API integrations</strong>, responsive UI, long-form management, and efficient form state handling.`,
+                  `I work across the stack with <strong>React, Next.js, Node.js, and databases</strong>, while also exploring <strong>AI agents</strong> and <strong>agentic applications</strong> to build intelligent and autonomous software.`,
 
-                  `I’m also working as a <strong>Project Associate I</strong> on an <strong>IIT Mandi</strong> research project titled <em>“Indian Legal Summarization for Layperson”</em>, focused on building a platform to help people read and understand legal judgments with <strong>AI-powered multilingual summarization</strong> and a <strong>chatbot interface</strong>.`,
+                  `I recently completed the <strong>Google Summer Internship 2026</strong> as a <strong>Software Engineering Intern</strong>, previously worked as a <strong>Frontend Developer Intern at GoFloww</strong>, and currently contribute as a <strong>Project Associate I</strong> on an <strong>IIT Mandi</strong> research project focused on AI-powered legal summarization.`,
 
-                  `Recently selected for the <strong>Google Summer Internship 2026</strong> (SWE role). Outside of tech, I enjoy <em>traveling</em>, <em>sports</em>, and learning how <strong>scalable systems</strong> are designed and optimized.`,
+                  `I’m deeply interested in <strong>System Design</strong> and scalable architectures, with a focus on understanding how reliable, efficient, and production-ready systems are designed and built.`,
                 ].map((point, i) => (
                   <div key={i} className="flex gap-4 items-start">
                     <div className="w-[40px] h-[40px] rounded-full bg-[#7c3bed51]  flex items-center justify-center mt-1">

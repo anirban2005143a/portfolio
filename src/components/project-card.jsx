@@ -6,6 +6,8 @@ import { ExternalLink, Github } from "lucide-react";
 import { Card, CardContent } from "./ui/card";
 import Image from "next/image";
 
+const defaultProjectImage = "/default_image.png";
+
 export function ProjectCard({
   project,
   index,
@@ -15,6 +17,10 @@ export function ProjectCard({
   isInView,
 }) {
   const [isHovered, setIsHovered] = useState(false);
+  const images =
+    Array.isArray(project.image) && project.image.length > 0
+      ? project.image
+      : [defaultProjectImage];
 
   return (
     <motion.div
@@ -53,12 +59,12 @@ export function ProjectCard({
             />
             {/* sliding auto animated images  */}
             {project.slideshow ? (
-              <SlidingImageCarousel images={project.image} />
+              <SlidingImageCarousel images={images} />
             ) : (
               <Image
                 fill
                 loading="lazy"
-                src={project.image}
+                src={images[0]}
                 alt={project.title}
                 className="z-0 h-full w-full object-cover transition-transform duration-500"
                 style={{ transform: isHovered ? "scale(1.05)" : "scale(1)" }}
