@@ -2,11 +2,25 @@
 
 import React, { useEffect, useState } from "react";
 import * as THREE from "three";
-import { GLTFLoader, DRACOLoader } from "three/examples/jsm/Addons.js";
+import { GLTFLoader } from "three/examples/jsm/Addons.js";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import useMobile from "@/hooks/use-mobile";
 gsap.registerPlugin(ScrollTrigger);
+
+let gltfPromise;
+
+const loadModel = () => {
+  if (!gltfPromise) {
+    const gltfLoader = new GLTFLoader();
+    gltfLoader.setPath("/stylized_flying_bee_bird_rigged/");
+    gltfPromise = new Promise((resolve, reject) => {
+      gltfLoader.load("scene.gltf", resolve, undefined, reject);
+    });
+  }
+
+  return gltfPromise;
+};
 
 const Model = ({ setisModelLoading }) => {
   const [arrPositionModel, setarrPositionModel] = useState(null);
@@ -28,28 +42,24 @@ const Model = ({ setisModelLoading }) => {
       // Scene
       const scene = new THREE.Scene();
 
-      // GLTF loader
-      const dracoLoader = new DRACOLoader();
-      dracoLoader.setDecoderPath(
-        "/node_modules/three/examples/jsm/libs/draco/"
-      );
-      const gltfLoader = new GLTFLoader();
-      gltfLoader.setDRACOLoader(dracoLoader);
       let mixer = null;
       let beeModel = null;
+      let animationFrameId;
+      let isCancelled = false;
 
-      gltfLoader.load(
-        "/stylized_flying_bee_bird_rigged/scene.gltf",
-        (gltf) => {
+      loadModel()
+        .then((gltf) => {
+          if (isCancelled) return;
+
           mixer = new THREE.AnimationMixer(gltf.scene);
           const action1 = mixer.clipAction(gltf.animations[0]);
           action1.play();
 
           beeModel = gltf.scene;
           beeModel.scale.set(
-            ismobile ? 0.01 : 0.025,
-            ismobile ? 0.01 : 0.025,
-            ismobile ? 0.01 : 0.025
+            ismobile ? 0.01 : 0.02,
+            ismobile ? 0.01 : 0.02,
+            ismobile ? 0.01 : 0.02
           );
           const arr = [...beeModel.children];
           // for(const mesh of arr){
@@ -59,21 +69,14 @@ const Model = ({ setisModelLoading }) => {
           scene.add(beeModel);
 
           setbee(beeModel);
-          setisModelLoading(false)
-        },
-
-        (xhr) => {
-          if (xhr.total > 0) {
-            const percent = (xhr.loaded / xhr.total) * 100;
-            console.log(`Loading model: ${percent.toFixed(2)}% loaded`);
-          } else {
-            console.log(`Loading model: ${xhr.loaded} bytes loaded`);
+          setisModelLoading(false);
+        })
+        .catch((error) => {
+          if (!isCancelled) {
+            console.error("An error happened", error);
+            setisModelLoading(false);
           }
-        },
-        (error) => {
-          console.error("An error happened", error);
-        }
-      );
+        });
 
       // Camera
       const camera = new THREE.PerspectiveCamera(
@@ -161,9 +164,15 @@ const Model = ({ setisModelLoading }) => {
         }
 
         renderer.render(scene, camera);
-        window.requestAnimationFrame(tick);
+        animationFrameId = window.requestAnimationFrame(tick);
       };
       tick();
+
+      return () => {
+        isCancelled = true;
+        window.cancelAnimationFrame(animationFrameId);
+        renderer.dispose();
+      };
     }
   }, [ismobile]);
 

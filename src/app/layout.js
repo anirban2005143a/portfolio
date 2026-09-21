@@ -1,7 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import { Rubik } from "next/font/google";
 import "./globals.css";
-import Head from "next/head";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next"
 
@@ -93,15 +92,6 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${rubik.variable}`}>
-      <Head>
-        <link rel="me" href="https://www.instagram.com/anirbangymboy/" />
-        <link
-          rel="me"
-          href="https://www.linkedin.com/in/anirban-das-2014412b9/"
-        />
-        <link rel="me" href="https://github.com/anirban2005143a" />
-      </Head>
-
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

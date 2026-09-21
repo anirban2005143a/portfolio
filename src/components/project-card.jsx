@@ -26,12 +26,10 @@ export function ProjectCard({
       onTouchStart={() => setIsHovered(true)}
       onTouchEnd={() => setIsHovered(false)}
       transition={{ duration: 0.5, ease: "easeOut" }}
-      className={` md:w-[500px] py-5 opacity-0 border-white  ${
-        index < 2 ? " border-b-2 " : ""
-      }`}
+      className="w-full min-w-0 py-5 opacity-0"
     >
-      <Card className="overflow-hidden flex flex-col relative border-0 shadow-xl   group">
-        <div className=" relative bg-gradient-to-b from-violet-900/60 to-transparent backdrop-blur-sm">
+      <Card className="group relative flex h-full flex-col overflow-hidden rounded-lg border-0 shadow-xl">
+        <div className="relative overflow-hidden rounded-lg bg-gradient-to-b from-violet-900/60 to-transparent backdrop-blur-sm">
           {/* Corner accents */}
           {[
             "top-0 left-0 rounded-tl-md border-t-2 border-l-2",
@@ -47,7 +45,7 @@ export function ProjectCard({
             />
           ))}
 
-          <div className="relative aspect-video overflow-hidden rounded-md rounded-b-none">
+          <div className="relative aspect-video overflow-hidden rounded-t-lg">
             {/* Hover overlay gradient */}
             <div
               className="absolute w-full h-full top-0 left-0 bg-gradient-to-t from-[#000000] to-[#00000006] z-10 opacity-0 transition-opacity duration-250"
@@ -62,7 +60,7 @@ export function ProjectCard({
                 loading="lazy"
                 src={project.image}
                 alt={project.title}
-                className="object-cover transition-transform duration-500 w-full h-full z-0"
+                className="z-0 h-full w-full object-cover transition-transform duration-500"
                 style={{ transform: isHovered ? "scale(1.05)" : "scale(1)" }}
               />
             )}
@@ -110,8 +108,11 @@ export function ProjectCard({
             </motion.div>
           </div>
 
-          <motion.div whileHover={{ y: -8 }}>
-            <div className="flex flex-col  flex-grow p-6 z-0">
+          <motion.div
+            animate={{ y: isHovered ? -8 : 0 }}
+            transition={{ duration: 0.2, ease: "easeOut" }}
+          >
+            <div className="z-0 flex flex-grow flex-col p-6">
               <h3 className="text-xl font-medium mb-2 text-violet-500 inline-block">
                 <strong> {project.title}</strong>
                 {project.ongoing && (
@@ -121,10 +122,10 @@ export function ProjectCard({
                 )}
               </h3>
 
-              <p
-                className="text-zinc-400 mb-4 flex-grow"
+              <div
+                className="mb-4 flex-grow text-zinc-400 [&_li]:ml-5 [&_li]:list-disc [&_p]:mb-2"
                 dangerouslySetInnerHTML={{ __html: project.description }}
-              ></p>
+              />
               <div className="flex flex-wrap gap-2">
                 {project.tags.map((tag, i) => (
                   <div
@@ -158,7 +159,7 @@ const SlidingImageCarousel = ({ images }) => {
   }, [images.length]);
 
   return (
-    <div ref={containerRef} className="w-full h-full relative">
+    <div ref={containerRef} className="relative h-full w-full overflow-hidden rounded-t-lg">
       {images.map((img, i) => (
         <motion.img
           key={i}

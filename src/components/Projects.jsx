@@ -7,7 +7,6 @@ import { ExternalLink } from "lucide-react";
 import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Router from "next/router";
 import { useRouter } from "next/navigation";
 import { projects } from "@/lib/projects";
 
@@ -90,12 +89,11 @@ const Projects = ({ setProjectLoader }) => {
         </div>
 
         {/* card content  */}
-        <div className=" px-4 md:px-6 lg:px-8 max-w-[1500px] mx-auto relative md:pt-20 pt-[400px] z-10">
+        <div className=" px-4 md:px-6 lg:px-8 max-w-2/3  relative md:pt-20 pt-[400px] z-10">
           <motion.div>
             {/* Cards */}
-            <div className=" relative flex flex-col items-start  ">
-              {projects.map((project, index) => {
-                if (index > 3) return;
+            <div className="relative grid grid-cols-1 gap-6 md:grid-cols-2">
+              {projects.slice(0, 4).map((project, index) => {
                 // Create a ref per project
                 const ref = useRef(null);
                 cardRefs.current[index] = ref.current;
@@ -117,7 +115,7 @@ const Projects = ({ setProjectLoader }) => {
               })}
 
               {/* View all button */}
-              <div className=" md:w-[500px] w-full my-10">
+              <div className="col-span-full my-10 flex w-full justify-center">
                 <button
                   onMouseOver={() => setisHovered(true)}
                   onMouseLeave={() => setisHovered(false)}
@@ -144,6 +142,7 @@ const Projects = ({ setProjectLoader }) => {
             </div>
           </motion.div>
         </div>
+      <div className="mx-auto my-10 h-px w-9/10 bg-purple-500/40" aria-hidden="true" />
       </section>
     </>
   );

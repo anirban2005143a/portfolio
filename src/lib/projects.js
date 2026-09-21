@@ -10,9 +10,9 @@ export const projects = [
       "/projects/legalSummarization/img3.png",
       "/projects/legalSummarization/img4.png",
     ], // multiple images for slideshow
-    tags: ["Next.js", "TypeScript", "Stripe", "Tailwind CSS"],
+    tags: ["Next.js", "TypeScript", "Fast API", "Huggingface", "Runpod", "Tailwind CSS"],
     slideshow: true,
-    ongoing: true,
+    // ongoing: true,
   },
   {
     title: "Atom Books",

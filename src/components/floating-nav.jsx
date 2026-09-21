@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import useMobile from "../hooks/use-mobile";
 import { AlignRight, X } from "lucide-react";
 import gsap from "gsap";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 export function FloatingNav() {
   const navItems = [
@@ -16,16 +16,82 @@ export function FloatingNav() {
     { name: "Contact", href: "#contact" },
   ];
 
-  const [isVisible, setIsVisible] = useState(true);
-  const [activeSection, setActiveSection] = useState("");
-  const [hoveredItem, setHoveredItem] = useState(null);
   const pathname = usePathname();
+  const router = useRouter();
+  const [isVisible, setIsVisible] = useState(true);
+  const [activeSection, setActiveSection] = useState(
+    pathname === "/projects" ? "projects" : "hero"
+  );
+  const [hoveredItem, setHoveredItem] = useState(null);
   const isMobile = useMobile();
+  const lastScrollY = useRef(0);
 
   const menuRef = useRef(null);
   const toggleButtonRef = useRef(null);
   const logoBorderMobileRef = useRef(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      setIsVisible(currentScrollY < lastScrollY.current || currentScrollY < 80);
+      lastScrollY.current = currentScrollY;
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    if (pathname === "/projects") {
+      setActiveSection("projects");
+      return;
+    }
+
+    const updateActiveSection = () => {
+      if (window.scrollY < 80) {
+        setActiveSection("hero");
+        return;
+      }
+
+      const sections = document.querySelectorAll(".section");
+      let currentSection = "hero";
+      sections.forEach((section) => {
+        if (section.getBoundingClientRect().top <= window.innerHeight / 2) {
+          currentSection = section.id;
+        }
+      });
+      setActiveSection(currentSection);
+    };
+
+    requestAnimationFrame(updateActiveSection);
+    window.addEventListener("scroll", updateActiveSection, { passive: true });
+
+    const targetId = window.location.hash.slice(1);
+    if (targetId) {
+      requestAnimationFrame(() => {
+        document.getElementById(targetId)?.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      });
+    }
+
+    return () => window.removeEventListener("scroll", updateActiveSection);
+  }, [pathname]);
+
+  const handleNavigation = (event, href) => {
+    if (pathname === "/projects" && href !== "#") {
+      event.preventDefault();
+      router.push(`/${href}`);
+      return;
+    }
+
+    if (pathname !== "/" && href === "#") {
+      event.preventDefault();
+      router.push("/");
+    }
+  };
 
   // GSAP animation for mobile menu
   useEffect(() => {
@@ -86,13 +152,15 @@ export function FloatingNav() {
             >
               <nav className="flex items-center gap-5 bg-[#0e0e11]/40 backdrop-blur-xs px-5 py-3 rounded-full border border-purple-800 shadow-lg shadow-purple-900/40">
                 {navItems.map((item) => {
-                  const isActive = activeSection === item.href.replace("#", "");
+                  const sectionId = item.href === "#" ? "hero" : item.href.slice(1);
+                  const isActive = activeSection === sectionId;
                   const isHovered = hoveredItem === item.name;
 
                   return (
                     <a
                       key={item.name}
-                      href={item.href}
+                      href={pathname === "/projects" ? `/${item.href}` : item.href}
+                      onClick={(event) => handleNavigation(event, item.href)}
                       className="relative px-3 py-1 text-sm font-medium rounded-full transition-all text-neutral-300 hover:text-white"
                       onMouseEnter={() => setHoveredItem(item.name)}
                       onMouseLeave={() => setHoveredItem(null)}
@@ -135,7 +203,11 @@ export function FloatingNav() {
       {isMobile && (
         <div>
           {/* Mobile Navbar */}
-          <div className=" fixed top-0 w-screen flex justify-end items-center py-6 px-5 z-30">
+          <motion.div
+            animate={{ y: isVisible ? 0 : -100 }}
+            transition={{ duration: 0.3 }}
+            className="fixed top-0 z-30 flex w-screen justify-end px-5 py-6"
+          >
             {/* Toggle Button */}
             <button
               ref={toggleButtonRef}
@@ -147,7 +219,7 @@ export function FloatingNav() {
             >
               <AlignRight className=" text-white scale-[1.5]" />
             </button>
-          </div>
+          </motion.div>
 
           {/* Mobile Menu */}
           <div
@@ -169,8 +241,9 @@ export function FloatingNav() {
                   return (
                     <a
                       key={index}
-                      href={`${item.href}`}
-                      onClick={() => {
+                      href={pathname === "/projects" ? `/${item.href}` : item.href}
+                      onClick={(event) => {
+                        handleNavigation(event, item.href);
                         setIsMenuOpen(false);
                       }}
                       className=" hover:underline text-xl text-violet-300 hover:underline-offset-4 nav-menu-mobile"

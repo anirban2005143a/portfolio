@@ -68,7 +68,7 @@ const AllProjects = ({ setProjectLoader }) => {
         <div className=" px-4 md:px-6 lg:px-8 max-w-[1500px] mx-auto relative md:pt-20 pt-[400px] z-10">
           <motion.div>
             {/* Cards */}
-            <div className=" relative grid md:grid-cols-2  ">
+            <div className="relative grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
               {projects.map((project, index) => {
                 // Create a ref per project
                 const ref = useRef(null);
