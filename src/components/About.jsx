@@ -50,7 +50,7 @@ const About = ({ setAboutLoader }) => {
 
                   `I work across the stack with <strong>React, Next.js, Node.js, and databases</strong>, while also exploring <strong>AI agents</strong> and <strong>agentic applications</strong> to build intelligent and autonomous software.`,
 
-                  `I recently completed the <strong>Google Summer Internship 2026</strong> as a <strong>Software Engineering Intern</strong>, previously worked as a <strong>Frontend Developer Intern at GoFloww</strong>, and currently contribute as a <strong>Project Associate I</strong> on an <strong>IIT Mandi</strong> research project focused on AI-powered legal summarization.`,
+                  `I recently completed the <strong>Google Summer Internship 2026</strong> as a <strong>Software Engineering Intern</strong>, previously worked as a <strong>Frontend Developer Intern at GoFloww</strong>, and contributed as a <strong>Project Associate I</strong> on an <strong>IIT Mandi</strong> research project focused on AI-powered legal summarization.`,
 
                   `I’m deeply interested in <strong>System Design</strong> and scalable architectures, with a focus on understanding how reliable, efficient, and production-ready systems are designed and built.`,
                 ].map((point, i) => (
